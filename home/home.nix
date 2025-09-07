@@ -17,6 +17,10 @@ in
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
+    soulseekqt
+    nicotine-plus
+    zed-editor
+    spotify
     discord
     poppler
     imagemagick

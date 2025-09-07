@@ -104,6 +104,7 @@
     udisks2
     gnome.gvfs
     os-prober
+    noto-fonts-cjk-sans
   ];
 
   services.udisks2.enable = true;
