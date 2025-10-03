@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { pkgs, ... }:
 
 {
@@ -51,10 +47,9 @@
     xkb.layout = "us,ru";
     xkb.options = "ctrl:swapcaps,grp:alt_shift_toggle";
 
-    displayManager.gdm.enable = true;
-    desktopManager = {
-      gnome.enable = true;
-    };
+    # displayManager.gdm.enable = true;
+    displayManager.sddm.enable = true;
+    desktopManager.gnome.enable = true;
   };
 
   # Enable sound with pipewire.
@@ -84,6 +79,14 @@
 
   # users.users.yourUserName.extraGroups = [ "fuse" ];
 
+  programs.hyprland = {
+    # Install the packages from nixpkgs
+    enable = true;
+    # Whether to enable XWayland
+    xwayland.enable = true;
+  };
+
+
   programs.firefox.enable = true;
   programs.zsh.enable = true;
   programs.dconf.enable = true;
@@ -108,6 +111,12 @@
   ];
 
   services.udisks2.enable = true;
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 80 443 ];
+  };
+
 
   services.udev.packages = [ pkgs.gnome-settings-daemon ];
   users.defaultUserShell = pkgs.zsh;

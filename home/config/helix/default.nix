@@ -25,7 +25,6 @@
       clang-tools
       cmake-language-server
       vscode-langservers-extracted
-      docker-compose-language-service
       gopls
       delve
       gotools

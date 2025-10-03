@@ -10,6 +10,7 @@ in
     configModules.gnome
     configModules.git
     configModules.ideavim
+    configModules.hyprland
     # configModules.plasma
     # configModules.vscode # vscode-ni lsp ko'rmayapti
   ];
@@ -17,7 +18,6 @@ in
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
-    soulseekqt
     nicotine-plus
     zed-editor
     spotify

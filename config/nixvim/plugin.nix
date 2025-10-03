@@ -154,9 +154,13 @@
         vuels.enable = false; # Vue
         pyright.enable = true; # Python
         marksman.enable = true; # Markdown
-
         jsonls.enable = true; #Json
-        dockerls.enable = true; # Docker
+
+        dockerls = {
+          enable = false;
+          package = null;
+        };
+
         bashls.enable = true; # Bash
         clangd.enable = true; # C/C++
         csharp_ls.enable = true; # C#

@@ -16,6 +16,7 @@
     gnomeExtensions.window-on-top
     gnomeExtensions.rounded-window-corners-reborn
     gnome-tweaks
+    ubuntu-themes
     adwaita-qt
     adwaita-icon-theme
     apostrophe

@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-
   imports = [
     ./option.nix
     ./plugin.nix
@@ -31,6 +30,23 @@
       };
     };
 
+    plugins = {
+      lsp.servers.dockerls.package = pkgs.nodePackages.dockerfile-language-server-nodejs;
+    };
+
+    diagnostics = {
+      signs = true; # keep signs in gutter
+      underline = true; # underline issues in text
+      update_in_insert = false; # don’t spam while typing
+      virtual_text = false;
+
+      float = {
+        source = "always"; # show source (e.g. pyright) in float
+        border = "rounded";
+      };
+    };
+
+
     extraConfigLuaPost = ''
       -- Make background transparent
       vim.cmd [[
@@ -46,7 +62,6 @@
         highlight WinSeparator guibg=NONE ctermbg=NONE
       ]]  
     '';
-
 
     extraPackages = with pkgs;[
       jdt-language-server

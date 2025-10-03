@@ -6,4 +6,5 @@
   ideavim = import ./ideavim;
   vscode = import ./vscode;
   plasma = import ./plasma;
+  hyprland = import ./hyprland;
 }

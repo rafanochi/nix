@@ -13,14 +13,12 @@
 
     # Modesetting is required.
     modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
     open = false;
 
     nvidiaSettings = true;
 
     prime = {
-      sync.enable = true;
+      offload.enable = true;
 
       # Make sure to use the correct Bus ID values for your system!
       intelBusId = "PCI:0:2:0";
@@ -31,9 +29,4 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
-
-
-
-
-
 }

@@ -121,6 +121,15 @@
       }
       {
         mode = "n";
+        key = "<leader>f";
+        action = ":lua vim.diagnostic.open_float()<Return>";
+        options = {
+          noremap = true;
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
         key = "ss";
         action = ":split<Return>";
         options = {
@@ -157,7 +166,6 @@
         key = "sl";
         action = "<C-w>l";
       }
-
       {
         mode = "n";
         key = "fmt";
