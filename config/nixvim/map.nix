@@ -9,7 +9,7 @@
       # Neo-tree bindings
       {
         action = "<cmd>Neotree toggle<CR>";
-        key = "<C-n>";
+        key = "<leader>n";
       }
 
       # Lazygit

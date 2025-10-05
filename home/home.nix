@@ -19,6 +19,7 @@ in
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
+    zellij
     yt-dlg
     nicotine-plus
     zed-editor
