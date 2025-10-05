@@ -11,6 +11,7 @@ in
     configModules.ideavim
     configModules.hyprland
     configModules.alacritty
+    configModules.zed
     # configModules.helix
     # configModules.plasma
     # configModules.vscode # vscode-ni lsp ko'rmayapti
@@ -19,6 +20,7 @@ in
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
+    fira-code
     zellij
     yt-dlg
     nicotine-plus

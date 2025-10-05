@@ -8,4 +8,5 @@
   plasma = import ./plasma;
   hyprland = import ./hyprland;
   alacritty = ./alacritty;
+  zed = ./zed;
 }
