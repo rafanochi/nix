@@ -6,11 +6,12 @@ in
 {
   imports = [
     configModules.zsh
-    # configModules.helix
     configModules.gnome
     configModules.git
     configModules.ideavim
     configModules.hyprland
+    configModules.kitty
+    # configModules.helix
     # configModules.plasma
     # configModules.vscode # vscode-ni lsp ko'rmayapti
   ];
@@ -18,6 +19,8 @@ in
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
+    kitty
+    yt-dlg
     nicotine-plus
     zed-editor
     spotify

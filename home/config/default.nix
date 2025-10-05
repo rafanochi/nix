@@ -7,4 +7,5 @@
   vscode = import ./vscode;
   plasma = import ./plasma;
   hyprland = import ./hyprland;
+  kitty = import ./kitty;
 }
