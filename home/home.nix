@@ -10,7 +10,7 @@ in
     configModules.git
     configModules.ideavim
     configModules.hyprland
-    configModules.kitty
+    configModules.alacritty
     # configModules.helix
     # configModules.plasma
     # configModules.vscode # vscode-ni lsp ko'rmayapti
@@ -19,7 +19,6 @@ in
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
-    kitty
     yt-dlg
     nicotine-plus
     zed-editor
