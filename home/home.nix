@@ -12,53 +12,35 @@ in
     configModules.hyprland
     configModules.alacritty
     configModules.zed
+    configModules.vscode # vscode-ni lsp ko'rmayapti
     # configModules.helix
     # configModules.plasma
-    # configModules.vscode # vscode-ni lsp ko'rmayapti
   ];
 
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
-    fira-code
     zellij
-    yt-dlg
     nicotine-plus
     zed-editor
     spotify
     discord
     poppler
-    imagemagick
-    inkscape-with-extensions
     vlc
-    scrcpy
-    flameshot
-    anydesk
     neofetch
-    ripgrep
     git
     zsh
     starship
     dconf2nix
-    gccgo14
     zsh
-    nodejs_20
-    bun
-    yarn
-    gnumake
-    python312
     ripgrep
-    cargo
-    git
     wget
     curl
     xclip
     nixpkgs-fmt
-    cmake
     nerd-fonts.fira-code
     cbonsai
     libsForQt5.qtcurve
-    go
   ];
 
   home.keyboard.options = [ "ctrl:swapcaps" ];

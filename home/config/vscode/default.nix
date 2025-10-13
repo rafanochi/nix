@@ -6,8 +6,6 @@
     extensions = with pkgs; [
       vscode-extensions.haskell.haskell
       vscode-extensions.asvetliakov.vscode-neovim
-      vscode-extensions.equinusocio.vsc-material-theme
-      vscode-extensions.equinusocio.vsc-material-theme-icons
     ];
     keybindings = [
       {
