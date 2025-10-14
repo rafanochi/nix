@@ -5,6 +5,11 @@ with lib.hm.gvariant;
 
 {
   dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = [ "qemu:///system" ];
+      uris = [ "qemu:///system" ];
+    };
+
     "com/github/johnfactotum/Foliate/window" = {
       maximized = false;
     };
@@ -421,7 +426,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/world-clocks" = {
-      locations = [];
+      locations = [ ];
     };
 
     "org/gnome/tweaks" = {

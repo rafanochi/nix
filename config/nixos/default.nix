@@ -3,9 +3,10 @@
 {
   imports = [
     # ./nvidia.nix
+    # ./kde.nix
     ./steam.nix
     ./configuration.nix
     ./hardware-configuration.nix
-    ./kde.nix
+    ./kvm.nix
   ];
 }
