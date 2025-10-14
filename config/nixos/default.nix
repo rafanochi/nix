@@ -6,5 +6,6 @@
     ./steam.nix
     ./configuration.nix
     ./hardware-configuration.nix
+    ./kde.nix
   ];
 }

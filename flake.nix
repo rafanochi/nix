@@ -24,9 +24,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    # San Francisco Fonts | Apple Fonts
+    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
+    apple-fonts.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Stylix
+    stylix.url = "github:danth/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixvim, stylix, apple-fonts, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -36,6 +44,7 @@
       nixosConfigurations.tya = nixpkgs.lib.nixosSystem rec {
         inherit system;
         modules = [
+          stylix.nixosModules.stylix
           nixvim.nixosModules.nixvim
           home-manager.nixosModules.home-manager
           ./config
@@ -43,6 +52,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.shahruz = import ./home/home.nix;
+            home-manager.backupFileExtension = "backup";
             # home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
           }
 
