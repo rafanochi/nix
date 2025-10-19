@@ -1,8 +1,4 @@
-{ unstable-pkgs, ... }:
-
-let
-  pkgs = unstable-pkgs;
-in
+{ pkgs, ... }:
 
 {
   programs.nixvim.plugins = {
@@ -129,6 +125,7 @@ in
           s = "none";
         };
       };
+
     };
 
     # Nix expressions in Neovim
@@ -155,7 +152,6 @@ in
         astro.enable = true; # AstroJS
         phpactor.enable = true; # PHP
         svelte.enable = false; # Svelte
-        vuels.enable = false; # Vue
         pyright.enable = true; # Python
         marksman.enable = true; # Markdown
         jsonls.enable = true; #Json
@@ -163,6 +159,7 @@ in
         dockerls = {
           enable = false;
           package = null;
+
         };
 
         bashls.enable = true; # Bash
