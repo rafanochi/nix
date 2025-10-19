@@ -102,15 +102,6 @@
     ];
   };
 
-  # users.users.yourUserName.extraGroups = [ "fuse" ];
-
-  programs.hyprland = {
-    # Install the packages from nixpkgs
-    enable = true;
-    # Whether to enable XWayland
-    xwayland.enable = true;
-  };
-
 
   programs.firefox.enable = true;
   programs.zsh.enable = true;

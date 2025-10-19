@@ -9,4 +9,5 @@
   hyprland = import ./hyprland;
   alacritty = ./alacritty;
   zed = ./zed;
+  wezterm = ./wezterm;
 }

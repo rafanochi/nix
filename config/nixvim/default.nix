@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{ unstable-pkgs, ... }:
+
+let
+  pkgs = unstable-pkgs;
+in
 
 {
   imports = [

@@ -12,6 +12,7 @@ in
     configModules.hyprland
     configModules.alacritty
     configModules.zed
+    configModules.wezterm
     configModules.vscode # vscode-ni lsp ko'rmayapti
     # configModules.helix
     # configModules.plasma
@@ -20,6 +21,7 @@ in
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
+    wezterm
     emacs-gtk
     zellij
     nicotine-plus
