@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, unstable-pkgs, ... }:
 
 {
   # Bootloader.
@@ -109,14 +109,13 @@
 
   environment.systemPackages = with pkgs;  [
     powertop
-    telegram-desktop
+    unstable-pkgs.telegram-desktop
     vscodium
     qbittorrent
     upscayl
     onlyoffice-bin
     obs-studio
     postman
-    telegram-desktop
     openjdk17
     gimp
     ntfs3g
