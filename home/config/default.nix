@@ -10,4 +10,5 @@
   alacritty = ./alacritty;
   zed = ./zed;
   wezterm = ./wezterm;
+  haskell = ./haskell;
 }

@@ -13,6 +13,7 @@ in
     configModules.alacritty
     configModules.zed
     configModules.wezterm
+    configModules.haskell
     configModules.vscode # vscode-ni lsp ko'rmayapti
     # configModules.helix
     # configModules.plasma
