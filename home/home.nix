@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, zen-browser, ... }:
 
 let
   configModules = import ./config;
@@ -22,7 +22,7 @@ in
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
-    wezterm
+    zen-browser.packages."${system}".default
     emacs-gtk
     zellij
     nicotine-plus

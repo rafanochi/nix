@@ -15,9 +15,14 @@
       url = "github:nix-community/nixvim/nixos-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+    };
+
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixvim, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixvim, zen-browser, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -44,6 +49,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.shahruz = import ./home/home.nix;
             home-manager.backupFileExtension = "backup";
+            home-manager.extraSpecialArgs = { inherit zen-browser; system = "x86_64-linux"; };
           }
           # Symlink module
           {
