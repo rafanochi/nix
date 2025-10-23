@@ -143,6 +143,13 @@
     lsp = {
       enable = true;
       servers = {
+
+        # nix 
+        nixd = {
+          enable = true;
+          autostart = true;
+        };
+
         # Average webdev LSPs
         # ts-ls.enable = true; # TS/JS
         ts_ls.enable = true; # TS/JS

@@ -25,6 +25,8 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixvim, zen-browser, ... }@inputs:
     let
       system = "x86_64-linux";
+      username = "shahruz";
+      hostname = "tya";
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
@@ -37,7 +39,7 @@
 
     in
     {
-      nixosConfigurations.tya = nixpkgs.lib.nixosSystem {
+      nixosConfigurations."${hostname}" = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = { inherit unstable-pkgs; };
         modules = [
@@ -47,9 +49,9 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.shahruz = import ./home/home.nix;
+            home-manager.users."${username}" = import ./home/home.nix;
             home-manager.backupFileExtension = "backup";
-            home-manager.extraSpecialArgs = { inherit zen-browser; system = "x86_64-linux"; };
+            home-manager.extraSpecialArgs = { inherit zen-browser system username hostname; };
           }
           # Symlink module
           {
@@ -62,7 +64,7 @@
         ];
       };
 
-      homeConfigurations.shahruz = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         specialArgs = { inherit unstable-pkgs; };
