@@ -46,7 +46,6 @@
       };
     };
 
-
     extraConfigLuaPost = ''
       -- Make background transparent
       vim.cmd [[

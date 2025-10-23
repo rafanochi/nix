@@ -1,4 +1,3 @@
-{ ... }:
 {
   programs.nixvim = {
     globals = {
