@@ -23,8 +23,10 @@ in
 
   home.packages = with pkgs; [
     zen-browser.packages."${system}".default
+    handbrake
     nixfmt-classic
     nixd
+    gpu-viewer
     emacs-gtk
     zellij
     nicotine-plus

@@ -5,48 +5,68 @@ with lib.hm.gvariant;
 
 {
   dconf.settings = {
-    "com/github/johnfactotum/Foliate/window" = {
-      maximized = false;
+    "org/gnome/shell" = {
+      app-picker-layout = [
+        [
+          { "org.gnome.Geary.desktop".position = 0; }
+          { "org.gnome.Contacts.desktop".position = 1; }
+          { "org.gnome.Weather.desktop".position = 2; }
+          { "org.gnome.clocks.desktop".position = 3; }
+          { "org.gnome.Maps.desktop".position = 4; }
+          { "org.gnome.Music.desktop".position = 5; }
+          { "simple-scan.desktop".position = 6; }
+          { "org.gnome.Settings.desktop".position = 7; }
+          { "org.gnome.Decibels.desktop".position = 8; }
+          { "org.gnome.Totem.desktop".position = 9; }
+          { "org.gnome.Snapshot.desktop".position = 10; }
+          { "org.gnome.Characters.desktop".position = 11; }
+          { "Utilities".position = 12; }
+          { "org.gnome.Calculator.desktop".position = 13; }
+          { "org.gnome.Console.desktop".position = 14; }
+          { "org.gnome.Tour.desktop".position = 15; }
+          { "yelp.desktop".position = 16; }
+          { "org.gnome.Extensions.desktop".position = 17; }
+          { "cups.desktop".position = 18; }
+          { "nixos-manual.desktop".position = 19; }
+          { "org.gnome.TextEditor.desktop".position = 20; }
+          { "xterm.desktop".position = 21; }
+          { "org.gnome.Calendar.desktop".position = 22; }
+          { "org.gnome.font-viewer.desktop".position = 23; }
+        ]
+        [
+          { "onlyoffice-desktopeditors.desktop".position = 0; }
+          { "org.gnome.SystemMonitor.desktop".position = 1; }
+          { "org.gnome.Epiphany.desktop".position = 2; }
+        ]
+      ];
+
+      disabled-extensions = [
+        "places-menu@gnome-shell-extensions.gcampax.github.com"
+        "apps-menu@gnome-shell-extensions.gcampax.github.com"
+      ];
+
+      enabled-extensions = [
+        "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com"
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "dock-from-dash@fthx"
+        "trayIconsReloaded@selfmade.pl"
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "dash-to-dock@micxgx.gmail.com"
+        "blur-my-shell@aunetx"
+      ];
+
+      favorite-apps = [
+        "org.gnome.Nautilus.desktop"
+        "org.wezfurlong.wezterm.desktop"
+        "org.telegram.desktop.desktop"
+        "zen-beta.desktop"
+      ];
+
+      last-selected-power-profile = "performance";
+      welcome-dialog-last-shown-version = "46.2";
     };
 
-    "com/lomiri/content/hub/destination" = {
-      all = [ "lomiri-filemanager-app" ];
-      contacts = [ "teleports" ];
-      documents = [ "lomiri-calendar-app" "lomiri-docviewer-app" "teleports" ];
-      ebooks = [ "teleports" ];
-      events = [ "lomiri-calendar-app" ];
-      links = [ "teleports" ];
-      music = [ "lomiri-mediaplayer-app" "lomiri-music-app" "teleports" ];
-      pictures = [ "lomiri-gallery-app" "teleports" ];
-      text = [ "teleports" ];
-      videos = [ "lomiri-gallery-app" "lomiri-mediaplayer-app" "teleports" ];
-    };
-
-    "com/lomiri/content/hub/share" = {
-      contacts = [ "lomiri-filemanager-app" "teleports" ];
-      documents = [ "lomiri-filemanager-app" "teleports" ];
-      ebooks = [ "lomiri-filemanager-app" "teleports" ];
-      events = [ "lomiri-filemanager-app" ];
-      links = [ "teleports" ];
-      music = [ "lomiri-filemanager-app" "teleports" ];
-      pictures = [ "lomiri-filemanager-app" "teleports" ];
-      text = [ "teleports" ];
-      videos = [ "lomiri-filemanager-app" "teleports" ];
-    };
-
-    "com/lomiri/content/hub/source" = {
-      all = [ "lomiri-filemanager-app" "morph-browser" ];
-      contacts = [ ];
-      documents = [ "lomiri-docviewer-app" ];
-      music = [ "lomiri-music-app" ];
-      pictures = [ "" "lomiri-camera-app" "lomiri-gallery-app" ];
-      videos = [ "" "lomiri-camera-app" "lomiri-gallery-app" ];
-    };
-
-    "com/lomiri/shell" = {
-      osk-switch-visible = true;
-      usage-mode = "Windowed";
-    };
+    "com/github/johnfactotum/Foliate/window" = { maximized = false; };
 
     "de/haeckerfelix/Fragments" = {
       client-last-connection = "00000000-0000-0000-0000-000000000000";
@@ -54,13 +74,7 @@ with lib.hm.gvariant;
       window-width = 900;
     };
 
-    "org/ayatana/indicator/messages" = {
-      applications = [ "lomiri-calendar-app.desktop" "lomiri-telephony-service-sms.desktop" "lomiri-telephony-service-call.desktop" ];
-    };
-
-    "org/blueman/general" = {
-      window-properties = [ 529 350 0 0 ];
-    };
+    "org/blueman/general" = { window-properties = [ 529 350 0 0 ]; };
 
     "org/gnome/Console" = {
       custom-font = "FiraCode Nerd Font 14";
@@ -70,9 +84,7 @@ with lib.hm.gvariant;
       use-system-font = false;
     };
 
-    "org/gnome/Extensions" = {
-      window-maximized = false;
-    };
+    "org/gnome/Extensions" = { window-maximized = false; };
 
     "org/gnome/Geary" = {
       compose-as-html = true;
@@ -80,9 +92,7 @@ with lib.hm.gvariant;
       migrated-config = true;
     };
 
-    "org/gnome/Loupe" = {
-      show-properties = true;
-    };
+    "org/gnome/Loupe" = { show-properties = true; };
 
     "org/gnome/baobab/ui" = {
       is-maximized = false;
@@ -125,9 +135,7 @@ with lib.hm.gvariant;
       window-state = mkTuple [ 980 640 false ];
     };
 
-    "org/gnome/desktop/a11y/applications" = {
-      screen-reader-enabled = false;
-    };
+    "org/gnome/desktop/a11y/applications" = { screen-reader-enabled = false; };
 
     "org/gnome/desktop/app-folders" = {
       folder-children = [ "Utilities" "YaST" "Pardus" ];
@@ -139,8 +147,36 @@ with lib.hm.gvariant;
       translate = true;
     };
 
+    "org/gnome/desktop/app-folders/folders/System" = {
+      apps = [
+        "org.gnome.baobab.desktop"
+        "org.gnome.DiskUtility.desktop"
+        "org.gnome.Logs.desktop"
+        "org.gnome.SystemMonitor.desktop"
+      ];
+      name = "X-GNOME-Shell-System.directory";
+      translate = true;
+    };
+
     "org/gnome/desktop/app-folders/folders/Utilities" = {
-      apps = [ "gnome-abrt.desktop" "gnome-system-log.desktop" "nm-connection-editor.desktop" "org.gnome.baobab.desktop" "org.gnome.Connections.desktop" "org.gnome.DejaDup.desktop" "org.gnome.Dictionary.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.Evince.desktop" "org.gnome.FileRoller.desktop" "org.gnome.fonts.desktop" "org.gnome.Loupe.desktop" "org.gnome.seahorse.Application.desktop" "org.gnome.tweaks.desktop" "org.gnome.Usage.desktop" "vinagre.desktop" ];
+      apps = [
+        "gnome-abrt.desktop"
+        "gnome-system-log.desktop"
+        "nm-connection-editor.desktop"
+        "org.gnome.baobab.desktop"
+        "org.gnome.Connections.desktop"
+        "org.gnome.DejaDup.desktop"
+        "org.gnome.Dictionary.desktop"
+        "org.gnome.DiskUtility.desktop"
+        "org.gnome.Evince.desktop"
+        "org.gnome.FileRoller.desktop"
+        "org.gnome.fonts.desktop"
+        "org.gnome.Loupe.desktop"
+        "org.gnome.seahorse.Application.desktop"
+        "org.gnome.tweaks.desktop"
+        "org.gnome.Usage.desktop"
+        "vinagre.desktop"
+      ];
       categories = [ "X-GNOME-Utilities" ];
       name = "X-GNOME-Utilities.directory";
       translate = true;
@@ -161,9 +197,7 @@ with lib.hm.gvariant;
       secondary-color = "#000000";
     };
 
-    "org/gnome/desktop/break-reminders/eyesight" = {
-      play-sound = true;
-    };
+    "org/gnome/desktop/break-reminders/eyesight" = { play-sound = true; };
 
     "org/gnome/desktop/break-reminders/movement" = {
       duration-seconds = mkUint32 300;
@@ -171,9 +205,7 @@ with lib.hm.gvariant;
       play-sound = true;
     };
 
-    "org/gnome/desktop/datetime" = {
-      automatic-timezone = true;
-    };
+    "org/gnome/desktop/datetime" = { automatic-timezone = true; };
 
     "org/gnome/desktop/input-sources" = {
       show-all-sources = true;
@@ -190,6 +222,7 @@ with lib.hm.gvariant;
       cursor-size = 24;
       cursor-theme = "Adwaita";
       enable-animations = true;
+      enable-hot-corners = false;
       font-antialiasing = "rgba";
       font-hinting = "slight";
       font-name = "Adwaita Sans 12";
@@ -201,10 +234,20 @@ with lib.hm.gvariant;
       show-battery-percentage = true;
       text-scaling-factor = 1.0;
       toolbar-style = "text";
+      toolkit-accessibility = false;
     };
 
     "org/gnome/desktop/notifications" = {
-      application-children = [ "org-telegram-desktop" "firefox" "gnome-power-panel" "org-gnome-console" "idea-community" "org-gnome-tweaks" "org-gnome-nautilus" ];
+      application-children = [
+        "org-telegram-desktop"
+        "firefox"
+        "gnome-power-panel"
+        "org-gnome-console"
+        "idea-community"
+        "org-gnome-tweaks"
+        "org-gnome-nautilus"
+        "org-wezfurlong-wezterm"
+      ];
     };
 
     "org/gnome/desktop/notifications/application/de-haeckerfelix-fragments" = {
@@ -259,12 +302,17 @@ with lib.hm.gvariant;
       application-id = "org.nicotine_plus.Nicotine.desktop";
     };
 
-    "org/gnome/desktop/notifications/application/org-qbittorrent-qbittorrent" = {
-      application-id = "org.qbittorrent.qBittorrent.desktop";
-    };
+    "org/gnome/desktop/notifications/application/org-qbittorrent-qbittorrent" =
+      {
+        application-id = "org.qbittorrent.qBittorrent.desktop";
+      };
 
     "org/gnome/desktop/notifications/application/org-telegram-desktop" = {
       application-id = "org.telegram.desktop.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/org-wezfurlong-wezterm" = {
+      application-id = "org.wezfurlong.wezterm.desktop";
     };
 
     "org/gnome/desktop/notifications/application/steam" = {
@@ -275,13 +323,13 @@ with lib.hm.gvariant;
       application-id = "upscayl.desktop";
     };
 
-    "org/gnome/desktop/peripherals/keyboard" = {
-      numlock-state = false;
+    "org/gnome/desktop/notifications/application/zen-beta" = {
+      application-id = "zen-beta.desktop";
     };
 
-    "org/gnome/desktop/peripherals/mouse" = {
-      speed = 0.0;
-    };
+    "org/gnome/desktop/peripherals/keyboard" = { numlock-state = false; };
+
+    "org/gnome/desktop/peripherals/mouse" = { speed = 0.0; };
 
     "org/gnome/desktop/peripherals/touchpad" = {
       edge-scrolling-enabled = false;
@@ -292,14 +340,13 @@ with lib.hm.gvariant;
     "org/gnome/desktop/screensaver" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/adwaita-l.jxl";
+      picture-uri =
+        "file:///run/current-system/sw/share/backgrounds/gnome/adwaita-l.jxl";
       primary-color = "#3071AE";
       secondary-color = "#000000";
     };
 
-    "org/gnome/desktop/session" = {
-      idle-delay = mkUint32 0;
-    };
+    "org/gnome/desktop/session" = { idle-delay = mkUint32 0; };
 
     "org/gnome/desktop/sound" = {
       event-sounds = false;
@@ -322,9 +369,7 @@ with lib.hm.gvariant;
       focus-mode = "click";
     };
 
-    "org/gnome/epiphany" = {
-      ask-for-default = false;
-    };
+    "org/gnome/epiphany" = { ask-for-default = false; };
 
     "org/gnome/epiphany/state" = {
       is-maximized = false;
@@ -342,12 +387,11 @@ with lib.hm.gvariant;
       sidebar-page = "thumbnails";
       sidebar-size = 132;
       sizing-mode = "automatic";
-      window-ratio = mkTuple [ 0.6855184233076264 0.48426150121065376 ];
+      window-ratio = mkTuple [ 0.685518 0.484262 ];
+      zoom = 0.33491102308761594;
     };
 
-    "org/gnome/evolution-data-server" = {
-      migrated = true;
-    };
+    "org/gnome/evolution-data-server" = { migrated = true; };
 
     "org/gnome/file-roller/dialogs/extract" = {
       height = 800;
@@ -388,9 +432,7 @@ with lib.hm.gvariant;
       window-width = 800;
     };
 
-    "org/gnome/gnome-system-monitor/disksview" = {
-      col-free-visible = true;
-    };
+    "org/gnome/gnome-system-monitor/disksview" = { col-free-visible = true; };
 
     "org/gnome/gnome-system-monitor/disktreenew" = {
       col-6-visible = true;
@@ -400,7 +442,34 @@ with lib.hm.gvariant;
     "org/gnome/gnome-system-monitor/proctree" = {
       col-26-visible = false;
       col-26-width = 0;
-      columns-order = [ 0 1 8 2 3 4 6 7 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 ];
+      columns-order = [
+        0
+        1
+        8
+        2
+        3
+        4
+        6
+        7
+        9
+        10
+        11
+        12
+        13
+        14
+        15
+        16
+        17
+        18
+        19
+        20
+        21
+        22
+        23
+        24
+        25
+        26
+      ];
       sort-col = 0;
       sort-order = 0;
     };
@@ -410,13 +479,9 @@ with lib.hm.gvariant;
       overlay-key = "Super";
     };
 
-    "org/gnome/nautilus/icon-view" = {
-      default-zoom-level = "small";
-    };
+    "org/gnome/nautilus/icon-view" = { default-zoom-level = "small"; };
 
-    "org/gnome/nautilus/list-view" = {
-      default-zoom-level = "small";
-    };
+    "org/gnome/nautilus/list-view" = { default-zoom-level = "small"; };
 
     "org/gnome/nautilus/preferences" = {
       default-folder-viewer = "icon-view";
@@ -430,16 +495,15 @@ with lib.hm.gvariant;
       maximized = false;
     };
 
-    "org/gnome/nm-applet" = {
-      disable-connected-notifications = true;
-    };
+    "org/gnome/nm-applet" = { disable-connected-notifications = true; };
 
     "org/gnome/portal/filechooser/com/github/johnfactotum/Foliate" = {
       last-folder-path = "/home/shahruz/Downloads";
     };
 
     "org/gnome/portal/filechooser/steam" = {
-      last-folder-path = "/home/shahruz/.local/share/Steam/steamapps/compatdata/3134598027/pfx/drive_c/The Genesis Order";
+      last-folder-path =
+        "/home/shahruz/.local/share/Steam/steamapps/compatdata/3134598027/pfx/drive_c/The Genesis Order";
     };
 
     "org/gnome/settings-daemon/plugins/color" = {
@@ -455,24 +519,15 @@ with lib.hm.gvariant;
       sleep-inactive-battery-type = "nothing";
     };
 
-    "org/gnome/shell" = {
-      disabled-extensions = [ "places-menu@gnome-shell-extensions.gcampax.github.com" "apps-menu@gnome-shell-extensions.gcampax.github.com" ];
-      enabled-extensions = [ "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com" "user-theme@gnome-shell-extensions.gcampax.github.com" "dock-from-dash@fthx" "trayIconsReloaded@selfmade.pl" "system-monitor@gnome-shell-extensions.gcampax.github.com" "TopIcons@phocean.net" "appindicatorsupport@rgcjonas.gmail.com" "dash-to-dock@micxgx.gmail.com" "blur-my-shell@aunetx" ];
-      favorite-apps = [ "org.gnome.Nautilus.desktop" "firefox.desktop" "org.wezfurlong.wezterm.desktop" "org.telegram.desktop.desktop" ];
-      last-selected-power-profile = "performance";
-      welcome-dialog-last-shown-version = "46.2";
-    };
-
-    "org/gnome/shell/app-switcher" = {
-      current-workspace-only = true;
-    };
+    "org/gnome/shell/app-switcher" = { current-workspace-only = true; };
 
     "org/gnome/shell/extensions/arcmenu" = {
       update-notifier-project-version = 65;
     };
 
     "org/gnome/shell/extensions/blur-my-shell" = {
-      pipelines = "<{'pipeline_default': {'name': 'Default', 'effects': [{'type': 'native_static_gaussian_blur', 'id': 'effect_000000000000', 'params': {'radius': 30, 'brightness': 1, 'unscaled_radius': 0}}]}, 'pipeline_default_rounded': {'name': 'Default rounded', 'effects': [{'type': 'native_static_gaussian_blur', 'id': 'effect_000000000001', 'params': {'radius': 30, 'brightness': 0.6}}, {'type': 'corner', 'id': 'effect_000000000002', 'params': {'radius': 24}}]}}>";
+      pipelines =
+        "<{'pipeline_default': {'name': 'Default', 'effects': [{'type': 'native_static_gaussian_blur', 'id': 'effect_000000000000', 'params': {'radius': 30, 'brightness': 1, 'unscaled_radius': 0}}]}, 'pipeline_default_rounded': {'name': 'Default rounded', 'effects': [{'type': 'native_static_gaussian_blur', 'id': 'effect_000000000001', 'params': {'radius': 30, 'brightness': 0.6}}, {'type': 'corner', 'id': 'effect_000000000002', 'params': {'radius': 24}}]}}>";
       settings-version = 2;
     };
 
@@ -573,7 +628,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/trayIconsReloaded" = {
-      applications = "[{\"id\":\"org.telegram.desktop.desktop\",\"hidden\":false}]";
+      applications = ''[{"id":"org.telegram.desktop.desktop","hidden":false}]'';
     };
 
     "org/gnome/shell/extensions/unite" = {
@@ -584,31 +639,24 @@ with lib.hm.gvariant;
       window-buttons-placement = "left";
     };
 
-    "org/gnome/shell/extensions/user-theme" = {
-      name = "";
-    };
+    "org/gnome/shell/extensions/user-theme" = { name = ""; };
 
-    "org/gnome/shell/world-clocks" = {
-      locations = [ ];
-    };
+    "org/gnome/shell/world-clocks" = { locations = [ ]; };
 
-    "org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9" = {
-      font = "FiraCode Nerd Font Mono 14";
-      use-system-font = false;
-    };
+    "org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9" =
+      {
+        font = "FiraCode Nerd Font Mono 14";
+        use-system-font = false;
+      };
 
-    "org/gnome/tweaks" = {
-      show-extensions-notice = false;
-    };
+    "org/gnome/tweaks" = { show-extensions-notice = false; };
 
     "org/gtk/gtk4/settings/color-chooser" = {
       custom-colors = [ (mkTuple [ 0.206667 0.197022 0.197022 1.0 ]) ];
       selected-color = mkTuple [ true 0.206667 0.197022 0.197022 1.0 ];
     };
 
-    "org/gtk/gtk4/settings/file-chooser" = {
-      show-hidden = true;
-    };
+    "org/gtk/gtk4/settings/file-chooser" = { show-hidden = true; };
 
     "org/gtk/settings/file-chooser" = {
       clock-format = "12h";
@@ -646,9 +694,7 @@ with lib.hm.gvariant;
       window-size = mkTuple [ 800 600 ];
     };
 
-    "org/virt-manager/virt-manager/details" = {
-      show-toolbar = true;
-    };
+    "org/virt-manager/virt-manager/details" = { show-toolbar = true; };
 
     "org/virt-manager/virt-manager/new-vm" = {
       firmware = "uefi";
@@ -661,7 +707,9 @@ with lib.hm.gvariant;
     };
 
     "org/virt-manager/virt-manager/urls" = {
-      isos = [ "/home/shahruz/Downloads/install-amd64-minimal-20251012T165136Z.iso" ];
+      isos = [
+        "/home/shahruz/Downloads/install-amd64-minimal-20251012T165136Z.iso"
+      ];
     };
 
     "org/virt-manager/virt-manager/vmlist-fields" = {

@@ -28,17 +28,12 @@
     nameserver 8.8.8.8
   '';
 
-
   time.timeZone = "Asia/Tashkent";
 
   i18n = {
-    supportedLocales = [
-      "en_US.UTF-8/UTF-8"
-      "ru_RU.UTF-8/UTF-8"
-    ];
+    supportedLocales = [ "en_US.UTF-8/UTF-8" "ru_RU.UTF-8/UTF-8" ];
     defaultLocale = "en_US.UTF-8";
   };
-
 
   services.printing.enable = true;
 
@@ -47,9 +42,7 @@
     xkb.layout = "us,ru";
     xkb.options = "ctrl:swapcaps,grp:alt_shift_toggle";
 
-    # displayManager.gdm.enable = true;
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
+    displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
 
@@ -86,7 +79,6 @@
     };
   };
 
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -95,19 +87,18 @@
     isNormalUser = true;
     description = "Shahruz Norimmatov";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      #  thunderbird
-      fuse3
-      unityhub
-    ];
+    packages = with pkgs;
+      [
+        #  thunderbird
+        fuse3
+      ];
   };
-
 
   programs.firefox.enable = true;
   programs.zsh.enable = true;
   programs.dconf.enable = true;
 
-  environment.systemPackages = with pkgs;  [
+  environment.systemPackages = with pkgs; [
     powertop
     unstable-pkgs.telegram-desktop
     vscodium
@@ -131,7 +122,6 @@
     enable = true;
     allowedTCPPorts = [ 80 443 ];
   };
-
 
   services.udev.packages = [ pkgs.gnome-settings-daemon ];
   users.defaultUserShell = pkgs.zsh;

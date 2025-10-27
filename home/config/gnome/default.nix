@@ -2,19 +2,18 @@
 
 {
   imports = [
-    ./dconf.nix
+    # ./dconf.nix
   ];
 
-  qt.platformTheme = "gnome";
+  # qt.enable = true;
+  # qt.platformTheme = "gnome";
+  # qt.style = "adwaita";
 
   home.packages = with pkgs; [
     gnomeExtensions.user-themes
     gnomeExtensions.dash-to-dock
     gnomeExtensions.appindicator
-    gnomeExtensions.topicons-plus
     gnomeExtensions.blur-my-shell
-    gnomeExtensions.window-on-top
-    gnomeExtensions.rounded-window-corners-reborn
     gnome-tweaks
     ubuntu-themes
     adwaita-qt
