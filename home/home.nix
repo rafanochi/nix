@@ -9,7 +9,6 @@ in
     configModules.gnome
     configModules.git
     configModules.ideavim
-    configModules.hyprland
     configModules.alacritty
     configModules.zed
     configModules.wezterm

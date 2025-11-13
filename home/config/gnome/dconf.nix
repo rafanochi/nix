@@ -6,40 +6,6 @@ with lib.hm.gvariant;
 {
   dconf.settings = {
     "org/gnome/shell" = {
-      app-picker-layout = [
-        [
-          { "org.gnome.Geary.desktop".position = 0; }
-          { "org.gnome.Contacts.desktop".position = 1; }
-          { "org.gnome.Weather.desktop".position = 2; }
-          { "org.gnome.clocks.desktop".position = 3; }
-          { "org.gnome.Maps.desktop".position = 4; }
-          { "org.gnome.Music.desktop".position = 5; }
-          { "simple-scan.desktop".position = 6; }
-          { "org.gnome.Settings.desktop".position = 7; }
-          { "org.gnome.Decibels.desktop".position = 8; }
-          { "org.gnome.Totem.desktop".position = 9; }
-          { "org.gnome.Snapshot.desktop".position = 10; }
-          { "org.gnome.Characters.desktop".position = 11; }
-          { "Utilities".position = 12; }
-          { "org.gnome.Calculator.desktop".position = 13; }
-          { "org.gnome.Console.desktop".position = 14; }
-          { "org.gnome.Tour.desktop".position = 15; }
-          { "yelp.desktop".position = 16; }
-          { "org.gnome.Extensions.desktop".position = 17; }
-          { "cups.desktop".position = 18; }
-          { "nixos-manual.desktop".position = 19; }
-          { "org.gnome.TextEditor.desktop".position = 20; }
-          { "xterm.desktop".position = 21; }
-          { "org.gnome.Calendar.desktop".position = 22; }
-          { "org.gnome.font-viewer.desktop".position = 23; }
-        ]
-        [
-          { "onlyoffice-desktopeditors.desktop".position = 0; }
-          { "org.gnome.SystemMonitor.desktop".position = 1; }
-          { "org.gnome.Epiphany.desktop".position = 2; }
-        ]
-      ];
-
       disabled-extensions = [
         "places-menu@gnome-shell-extensions.gcampax.github.com"
         "apps-menu@gnome-shell-extensions.gcampax.github.com"
@@ -240,7 +206,6 @@ with lib.hm.gvariant;
     "org/gnome/desktop/notifications" = {
       application-children = [
         "org-telegram-desktop"
-        "firefox"
         "gnome-power-panel"
         "org-gnome-console"
         "idea-community"
@@ -256,10 +221,6 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/notifications/application/discord" = {
       application-id = "discord.desktop";
-    };
-
-    "org/gnome/desktop/notifications/application/firefox" = {
-      application-id = "firefox.desktop";
     };
 
     "org/gnome/desktop/notifications/application/gimp" = {

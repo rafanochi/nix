@@ -94,7 +94,6 @@
       ];
   };
 
-  programs.firefox.enable = true;
   programs.zsh.enable = true;
   programs.dconf.enable = true;
 
@@ -129,7 +128,7 @@
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_14;
-    ensureDatabases = [ "gardening" ];
+    ensureDatabases = [ "gardening" "postgres" ];
     enableTCPIP = true;
     authentication = pkgs.lib.mkOverride 10 ''
       local all      all                    trust
