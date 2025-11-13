@@ -35,7 +35,31 @@
     defaultLocale = "en_US.UTF-8";
   };
 
-  services.printing.enable = true;
+  # services.printing.enable = true;
+
+  services.gnome.core-developer-tools.enable = false;
+  services.gnome.games.enable = false;
+
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-tour
+    gnome-user-docs
+    gnome-maps
+    gnome-weather
+    gnome-clocks
+    gnome-contacts
+    gnome-music
+    gnome-calendar
+    gnome-text-editor
+    gnome-characters
+    simple-scan
+    decibels
+    geary
+    totem
+    snapshot
+    xterm
+    yelp
+    xterm
+  ];
 
   services.xserver = {
     enable = true;
@@ -90,7 +114,6 @@
     packages = with pkgs;
       [
         #  thunderbird
-        fuse3
       ];
   };
 
@@ -106,7 +129,6 @@
     onlyoffice-bin
     obs-studio
     postman
-    openjdk17
     gimp
     ntfs3g
     udisks2

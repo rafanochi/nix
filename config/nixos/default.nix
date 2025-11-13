@@ -1,12 +1,12 @@
-{pkgs, lib, config, ...}: 
+{ pkgs, lib, config, ... }:
 
 {
   imports = [
-    # ./nvidia.nix
-    # ./kde.nix
-    ./steam.nix
+    ./nvidia.nix
     ./configuration.nix
     ./hardware-configuration.nix
-    ./kvm.nix
+    # ./kvm.nix
+    # ./kde.nix
+    # ./steam.nix
   ];
 }

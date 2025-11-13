@@ -15,19 +15,7 @@
     gnomeExtensions.appindicator
     gnomeExtensions.blur-my-shell
     gnome-tweaks
-    ubuntu-themes
     adwaita-qt
     adwaita-icon-theme
-    apostrophe
-    cartridges
-    curtail
-    gnome-themes-extra
-    video-trimmer
-    fragments
-    komikku
-    foliate
-    morphosis
-    gnome-terminal
-    letterpress
   ];
 }

@@ -8,12 +8,12 @@ in
     configModules.zsh
     configModules.gnome
     configModules.git
-    configModules.ideavim
-    configModules.alacritty
-    configModules.zed
     configModules.wezterm
     configModules.haskell
-    configModules.vscode # vscode-ni lsp ko'rmayapti
+    configModules.vscode
+    # configModules.ideavim
+    # configModules.alacritty
+    # configModules.zed
     # configModules.helix
     # configModules.plasma
   ];
@@ -25,20 +25,11 @@ in
     handbrake
     nixfmt-classic
     nixd
-    gpu-viewer
-    emacs-gtk
-    zellij
-    nicotine-plus
-    zed-editor
-    spotify
-    discord
-    poppler
     vlc
     neofetch
     git
     zsh
     starship
-    dconf2nix
     zsh
     ripgrep
     wget
@@ -46,7 +37,6 @@ in
     xclip
     nixpkgs-fmt
     nerd-fonts.fira-code
-    cbonsai
     libsForQt5.qtcurve
   ];
 

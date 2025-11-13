@@ -1,32 +1,27 @@
-{ config, lib, pkgs, ... }:
+{ config, ... }:
 
 {
-  # Enable OpenGL
-  hardware.graphics = {
-    enable = true;
-  };
-
-  # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
+  # Enable OpenGL
+  hardware.graphics = { enable = true; };
 
   hardware.nvidia = {
-
-    # Modesetting is required.
-    modesetting.enable = true;
     open = false;
-
+    modesetting.enable = true;
     nvidiaSettings = true;
+    powerManagement.enable = true;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
+  };
 
-    prime = {
-      offload.enable = true;
-
-      # Make sure to use the correct Bus ID values for your system!
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-      # amdgpuBusId = "PCI:54:0:0"; For AMD GPU
+  hardware.nvidia.prime = {
+    offload = {
+      enable = true;
+      enableOffloadCmd =
+        true; # Lets you use `nvidia-offload %command%` in steam
     };
 
-    # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    intelBusId = "PCI:00:02:0";
+    nvidiaBusId = "PCI:01:00:0";
   };
 }
+
