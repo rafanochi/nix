@@ -34,7 +34,7 @@
       lsp.servers.dockerls.package = pkgs.nodePackages.dockerfile-language-server-nodejs;
     };
 
-    diagnostics = {
+    diagnostic.settings = {
       signs = true; # keep signs in gutter
       underline = true; # underline issues in text
       update_in_insert = false; # don’t spam while typing

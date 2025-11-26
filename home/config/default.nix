@@ -11,4 +11,5 @@
   zed = ./zed;
   wezterm = ./wezterm;
   haskell = ./haskell;
+  i3wm = ./i3;
 }

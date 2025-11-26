@@ -67,7 +67,7 @@
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        specialArgs = { inherit unstable-pkgs; };
+        extraSpecialArgs = { inherit unstable-pkgs zen-browser system username hostname; };
         modules = [
           ({ config, pkgs, ... }: {
             home.username = "shahruz";

@@ -1,16 +1,15 @@
-{ pkgs, zen-browser, ... }:
+{ pkgs, zen-browser, lib, unstable-pkgs, ... }:
 
-let
-  configModules = import ./config;
-in
-{
+let configModules = import ./config;
+in {
   imports = [
     configModules.zsh
-    configModules.gnome
     configModules.git
-    configModules.wezterm
-    configModules.haskell
     configModules.vscode
+    configModules.i3wm
+    # configModules.gnome
+    # configModules.wezterm
+    # configModules.haskell
     # configModules.ideavim
     # configModules.alacritty
     # configModules.zed
@@ -38,13 +37,18 @@ in
     nixpkgs-fmt
     nerd-fonts.fira-code
     libsForQt5.qtcurve
+    # unstable-pkgs.telegram-desktop
   ];
 
   home.keyboard.options = [ "ctrl:swapcaps" ];
 
-  home.file.".xprofile" = {
-    source = pkgs.writeText "xprofile" ''
-      setxkbmap -option ctrl:swapcaps
-    '';
-  };
+  xdg.enable = true;
+  xdg.mime.enable = true;
+
+  home.activation.linkDesktopApps = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    mkdir -p "$HOME/.local/share/applications"
+    for f in $HOME/.nix-profile/share/applications/*.desktop; do
+      ln -sf "$f" "$HOME/.local/share/applications/$(basename "$f")"
+    done
+  '';
 }
