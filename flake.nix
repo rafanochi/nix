@@ -16,13 +16,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-    };
-
+    zen-browser = { url = "github:0xc000022070/zen-browser-flake"; };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixvim, zen-browser, ... }@inputs:
+  outputs =
+    { self
+    , nixpkgs
+    , nixpkgs-unstable
+    , home-manager
+    , nixvim
+    , zen-browser
+    , ...
+    }@inputs:
     let
       system = "x86_64-linux";
       username = "shahruz";
@@ -51,7 +56,9 @@
             home-manager.useUserPackages = true;
             home-manager.users."${username}" = import ./home/home.nix;
             home-manager.backupFileExtension = "backup";
-            home-manager.extraSpecialArgs = { inherit zen-browser system username hostname; };
+            home-manager.extraSpecialArgs = {
+              inherit zen-browser system username hostname;
+            };
           }
           # Symlink module
           {
@@ -64,20 +71,23 @@
         ];
       };
 
-      homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+      homeConfigurations."${username}" =
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
 
-        extraSpecialArgs = { inherit unstable-pkgs zen-browser system username hostname; };
-        modules = [
-          ({ config, pkgs, ... }: {
-            home.username = "shahruz";
-            home.homeDirectory = "/home/shahruz";
-          })
-          nixvim.homeManagerModules.nixvim
-          ./config/nixvim
-          ./home/home.nix
-        ];
-      };
+          extraSpecialArgs = {
+            inherit unstable-pkgs zen-browser system username hostname;
+          };
+          modules = [
+            ({ config, pkgs, ... }: {
+              home.username = "shahruz";
+              home.homeDirectory = "/home/shahruz";
+            })
+            nixvim.homeManagerModules.nixvim
+            ./config/nixvim
+            ./home/home.nix
+          ];
+        };
     };
 }
 
