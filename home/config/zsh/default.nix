@@ -43,6 +43,7 @@
       gpl = "git pull";
       vim = "nvim";
       vi = "nvim";
+      copy="xclip -selection clipboard";
     };
   };
 
