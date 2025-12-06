@@ -7,8 +7,8 @@ in {
     configModules.git
     configModules.vscode
     configModules.i3wm
+    configModules.wezterm
     # configModules.gnome
-    # configModules.wezterm
     # configModules.haskell
     # configModules.ideavim
     # configModules.alacritty
