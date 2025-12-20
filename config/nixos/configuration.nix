@@ -66,6 +66,8 @@
     xkb.layout = "us,ru";
     xkb.options = "ctrl:swapcaps,grp:alt_shift_toggle";
 
+  };
+  services = {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
@@ -126,7 +128,7 @@
     vscodium
     qbittorrent
     upscayl
-    onlyoffice-bin
+    onlyoffice-desktopeditors
     obs-studio
     postman
     gimp
@@ -171,5 +173,5 @@
     };
   };
 
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 }

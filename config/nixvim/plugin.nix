@@ -15,32 +15,22 @@
       };
     };
 
-    lualine = {
-      enable = true;
-    };
+    lualine = { enable = true; };
 
     # Includes all parsers for treesitter
-    treesitter = {
-      enable = true;
-    };
+    treesitter = { enable = true; };
 
     # Icons 
     web-devicons.enable = true;
 
     # Auto-tagging
-    ts-autotag = {
-      enable = true;
-    };
+    ts-autotag = { enable = true; };
 
     # Autopairs
-    nvim-autopairs = {
-      enable = true;
-    };
+    nvim-autopairs = { enable = true; };
 
     # Lazygit
-    lazygit = {
-      enable = true;
-    };
+    lazygit = { enable = true; };
 
     # Easily toggle comments
     commentary.enable = true;
@@ -81,11 +71,7 @@
     # Good old Telescope
     telescope = {
       enable = true;
-      extensions = {
-        fzf-native = {
-          enable = true;
-        };
-      };
+      extensions = { fzf-native = { enable = true; }; };
     };
 
     # Todo comments
@@ -104,40 +90,39 @@
     # File tree
     neo-tree = {
       enable = true;
-      enableDiagnostics = true;
-      enableGitStatus = true;
-      enableModifiedMarkers = true;
-      enableRefreshOnWrite = true;
-      closeIfLastWindow = false;
-      popupBorderStyle = "rounded"; # Type: null or one of “NC”, “double”, “none”, “rounded”, “shadow”, “single”, “solid” or raw lua code
-      buffers = {
-        bindToCwd = false;
-        followCurrentFile = {
-          enabled = true;
+      settings = {
+        enableDiagnostics = true;
+        enableGitStatus = true;
+        enableModifiedMarkers = true;
+        enableRefreshOnWrite = true;
+        closeIfLastWindow = false;
+
+        # Type: null or one of “NC”, “double”, “none”, “rounded”, “shadow”, “single”, “solid” or raw lua code
+        popupBorderStyle = "rounded";
+
+        window = {
+          width = 40;
+          height = 15;
+          autoExpandWidth = false;
+
         };
-      };
-      window = {
-        width = 40;
-        height = 15;
-        autoExpandWidth = false;
+        buffers = {
+          bindToCwd = false;
+          followCurrentFile = { enabled = true; };
+        };
         mappings = {
           "<space>" = "none";
           s = "none";
         };
       };
-
     };
 
     # Nix expressions in Neovim
-    nix = {
-      enable = true;
-    };
+    nix = { enable = true; };
 
     # java
     jdtls.enable = true;
-    jdtls.settings = {
-      cmd = [ "${pkgs.jdt-language-server}/bin/jdtls" ];
-    };
+    jdtls.settings = { cmd = [ "${pkgs.jdt-language-server}/bin/jdtls" ]; };
 
     # Language server
     lsp = {
@@ -161,7 +146,7 @@
         svelte.enable = false; # Svelte
         pyright.enable = true; # Python
         marksman.enable = true; # Markdown
-        jsonls.enable = true; #Json
+        jsonls.enable = true; # Json
 
         dockerls = {
           enable = false;
@@ -180,7 +165,7 @@
         sqlls = {
           enable = true;
           package = pkgs.sqls;
-        }; #SQL
+        }; # SQL
         gopls = {
           # Golang
           enable = true;
@@ -207,21 +192,18 @@
 
     lspkind = {
       enable = false;
-      symbolMap = {
-        Copilot = "";
-      };
-      extraOptions = {
+      settings = {
+        symbolMap = { Copilot = ""; };
+
         maxwidth = 50;
         ellipsis_char = "...";
       };
+      # extraOptions = { };
     };
-
     cmp = {
       enable = true;
       settings = {
-        completion = {
-          completeopt = "menu,menuone,noinsert";
-        };
+        completion = { completeopt = "menu,menuone,noinsert"; };
         autoEnableSources = true;
         experimental = { ghost_text = true; };
         performance = {
@@ -249,7 +231,8 @@
           }
         ];
 
-        snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+        snippet.expand =
+          "function(args) require('luasnip').lsp_expand(args.body) end";
 
         window = {
           completion = { border = "solid"; };
@@ -265,21 +248,18 @@
           "<C-f>" = "cmp.mapping.scroll_docs(4)";
           "<C-Space>" = "cmp.mapping.complete()";
           "<CR>" = "cmp.mapping.confirm({ select = true })";
-          "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
+          "<S-CR>" =
+            "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
         };
       };
     };
 
-    cmp-emoji = {
-      enable = true;
-    };
+    cmp-emoji = { enable = true; };
 
     cmp-nvim-lsp = {
       enable = true; # LSP
     };
-    cmp-buffer = {
-      enable = true;
-    };
+    cmp-buffer = { enable = true; };
     cmp-path = {
       enable = true; # file system paths
     };

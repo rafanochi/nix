@@ -7,17 +7,17 @@ in {
     configModules.git
     configModules.vscode
     configModules.wezterm
+    configModules.gnome
+    configModules.zed
     # configModules.i3wm
-    # configModules.gnome
     # configModules.haskell
     # configModules.ideavim
     # configModules.alacritty
-    # configModules.zed
     # configModules.helix
     # configModules.plasma
   ];
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
     zen-browser.packages."${system}".default

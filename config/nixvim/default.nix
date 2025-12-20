@@ -58,13 +58,15 @@
         highlight WinSeparator guibg=NONE ctermbg=NONE
       ]]  
 
-      require('lspconfig').hls.setup{
+      vim.lsp.config.hls = {
         settings = {
           haskell = {
-            formattingProvider = "fourmolu",  -- use fourmolu, not ormolu
-          }
-        }
+            formattingProvider = "fourmolu",
+          },
+        },
       }
+      
+      vim.lsp.enable("hls")      
 
     '';
 

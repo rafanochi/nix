@@ -5,8 +5,8 @@
     ./nvidia.nix
     ./configuration.nix
     ./hardware-configuration.nix
+    ./steam.nix
     # ./kvm.nix
     # ./kde.nix
-    # ./steam.nix
   ];
 }
