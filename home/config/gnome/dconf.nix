@@ -5,6 +5,13 @@ with lib.hm.gvariant;
 
 {
   dconf.settings = {
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
+      {
+        binding = "<Super>Return";
+        command = "wezterm";
+        name = "open terminal";
+      };
+
     "org/gnome/shell" = {
       disabled-extensions = [
         "places-menu@gnome-shell-extensions.gcampax.github.com"
