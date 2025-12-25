@@ -90,30 +90,38 @@
     # File tree
     neo-tree = {
       enable = true;
+
       settings = {
         enableDiagnostics = true;
         enableGitStatus = true;
         enableModifiedMarkers = true;
         enableRefreshOnWrite = true;
         closeIfLastWindow = false;
-
-        # Type: null or one of “NC”, “double”, “none”, “rounded”, “shadow”, “single”, “solid” or raw lua code
         popupBorderStyle = "rounded";
 
         window = {
           width = 40;
           height = 15;
           autoExpandWidth = false;
-
         };
+
+        filesystem = {
+          window.mappings = {
+            "<space>" = false;
+            "s" = false;
+            "l" = false;
+            "sl" = false;
+          };
+        };
+
         buffers = {
           bindToCwd = false;
-          followCurrentFile = { enabled = true; };
+          followCurrentFile.enabled = true;
+
+          window.mappings = { "s" = false; };
         };
-        mappings = {
-          "<space>" = "none";
-          s = "none";
-        };
+
+        git_status.window.mappings = { "s" = false; };
       };
     };
 

@@ -322,6 +322,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/wm/keybindings" = {
+      begin-resize = [ "<Super>r" ];
       close = [ "<Alt>q" ];
       move-to-workspace-left = [ "<Shift><Alt>h" ];
       move-to-workspace-right = [ "<Shift><Alt>l" ];
