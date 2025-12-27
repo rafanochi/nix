@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   programs.wezterm = {
     enable = true;
     enableZshIntegration = true;
@@ -36,19 +35,22 @@
           "#ff5370"
           "#c3e88d"
           "#ffcb6b"
-          "#82aaff"
           "#c792ea"
-          "#89ddff"
+          "#82aaff"
+          # "#89ddff" 
+          "#DC8ADD" # teal
           "#ffffff"
         ];
+
         brights = [
           "#545454"
           "#ff5370"
           "#c3e88d"
           "#ffcb6b"
-          "#82aaff"
           "#c792ea"
-          "#89ddff"
+          "#82aaff"
+          # "#89ddff"
+          "#DC8ADD" # Aqua
           "#ffffff"
         ];
         background = "#212121";
@@ -63,3 +65,6 @@
   };
 }
 
+#DC8ADD
+
+#C061CB

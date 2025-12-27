@@ -21,6 +21,7 @@ in {
 
   home.packages = with pkgs; [
     zen-browser.packages."${system}".default
+    zellij
     handbrake
     nixfmt-classic
     nixd
