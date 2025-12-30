@@ -22,16 +22,11 @@
     gnomeExtensions.tray-icons-reloaded
     gnomeExtensions.color-picker
     gnomeExtensions.space-bar
-    gnomeExtensions.just-perfection
-    gnomeExtensions.adw-gtk3-colorizer
-    gnomeExtensions.auto-adwaita-colors
+    gnomeExtensions.date-menu-formatter
     gnome-tweaks
     adwaita-qt
     adwaita-icon-theme
-    adwaita-icon-theme-legacy
-    morewaita-icon-theme
     cava
-    rewaita
     refine
     dconf2nix
   ];

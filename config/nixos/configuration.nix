@@ -125,8 +125,9 @@
   programs.dconf.enable = true;
 
   environment.systemPackages = with pkgs; [
-    powertop
     unstable-pkgs.telegram-desktop
+    discord
+    powertop
     vscodium
     qbittorrent
     upscayl
