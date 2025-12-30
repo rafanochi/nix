@@ -28,6 +28,8 @@
     gnome-tweaks
     adwaita-qt
     adwaita-icon-theme
+    adwaita-icon-theme-legacy
+    morewaita-icon-theme
     cava
     rewaita
     refine

@@ -1,4 +1,3 @@
-# Generated via dconf2nix: https://github.com/gvolpe/dconf2nix
 { lib, ... }:
 
 with lib.hm.gvariant;
@@ -835,18 +834,28 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/space-bar/appearance" = {
-      active-workspace-background-color = "rgb(145,65,172)";
+      active-workspace-background-color = "rgba(255,255,255,0)";
       active-workspace-border-color = "rgba(0,0,0,0)";
-      active-workspace-font-size = 8;
+      active-workspace-border-radius = 30;
+      active-workspace-border-width = 0;
+      active-workspace-font-size = 11;
       active-workspace-font-size-active = true;
-      active-workspace-font-size-user = 8;
+      active-workspace-font-size-user = 11;
       active-workspace-font-weight = "900";
+      active-workspace-padding-v = 5;
+      active-workspace-text-color = "rgb(192,97,203)";
       application-styles =
-        ".space-bar {n  -natural-hpadding: 15px;n}nn.space-bar-workspace-label.active {n  margin: 0 5px;n  background-color: rgb(145,65,172);n  color: rgba(255,255,255,1);n  border-color: rgba(0,0,0,0);n  font-weight: 900;n  border-radius: 4px;n  border-width: 0px;n  padding: 3px 8px;n  font-size: 8pt;n}nn.space-bar-workspace-label.inactive {n  margin: 0 5px;n  background-color: rgba(0,0,0,0);n  color: rgba(255,255,255,1);n  border-color: rgba(0,0,0,0);n  font-weight: 900;n  border-radius: 4px;n  border-width: 0px;n  padding: 3px 8px;n  font-size: 8pt;n}nn.space-bar-workspace-label.inactive.empty {n  margin: 0 5px;n  background-color: rgba(0,0,0,0);n  color: rgba(255,255,255,0.5);n  border-color: rgba(0,0,0,0);n  font-weight: 900;n  border-radius: 4px;n  border-width: 0px;n  padding: 3px 8px;n  font-size: 8pt;n}";
-      empty-workspace-font-size = 8;
+        ".space-bar {n  -natural-hpadding: 15px;n}nn.space-bar-workspace-label.active {n  margin: 0 5px;n  background-color: rgba(255,255,255,0);n  color: rgb(192,97,203);n  border-color: rgba(0,0,0,0);n  font-weight: 900;n  border-radius: 30px;n  border-width: 0px;n  padding: 5px 8px;n  font-size: 11pt;n}nn.space-bar-workspace-label.inactive {n  margin: 0 5px;n  background-color: rgba(0,0,0,0);n  color: rgba(255,255,255,1);n  border-color: rgba(0,0,0,0);n  font-weight: 900;n  border-radius: 30px;n  border-width: 0px;n  padding: 5px 8px;n  font-size: 11pt;n}nn.space-bar-workspace-label.inactive.empty {n  margin: 0 5px;n  background-color: rgba(0,0,0,0);n  color: rgba(255,255,255,0.5);n  border-color: rgba(0,0,0,0);n  font-weight: 900;n  border-radius: 30px;n  border-width: 0px;n  padding: 5px 8px;n  font-size: 11pt;n}";
+      empty-workspace-border-radius = 30;
+      empty-workspace-border-width = 0;
+      empty-workspace-font-size = 11;
       empty-workspace-font-weight = "900";
-      inactive-workspace-font-size = 8;
+      empty-workspace-padding-v = 5;
+      inactive-workspace-border-radius = 30;
+      inactive-workspace-border-width = 0;
+      inactive-workspace-font-size = 11;
       inactive-workspace-font-weight = "900";
+      inactive-workspace-padding-v = 5;
       workspace-margin = 5;
       workspaces-bar-padding = 15;
     };
@@ -1046,3 +1055,4 @@ with lib.hm.gvariant;
 
   };
 }
+
