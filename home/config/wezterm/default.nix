@@ -14,6 +14,7 @@
         initial_rows = 35,
         window_decorations = "TITLE|RESIZE", -- native GNOME buttons
         enable_wayland = true,
+        harfbuzz_features = { 'calt = 0', 'clig = 0', 'liga = 0' },
 
         keys = {
           { key = '1', mods = 'ALT', action = wezterm.action.ActivateTab(0) },

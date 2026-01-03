@@ -3,7 +3,7 @@
 {
   # Bootloader.
   boot.loader.systemd-boot.enable = false;
-    
+
   boot.loader.grub = {
     enable = true;
     efiSupport = true;
@@ -71,7 +71,9 @@
   };
   services = {
     displayManager.gdm.enable = true;
+    # displayManager.lightdm.enable = true;
     desktopManager.gnome.enable = true;
+    # desktopManager.cinnamon.enable = true;
   };
 
   # Enable sound with pipewire.
@@ -124,8 +126,14 @@
   programs.zsh.enable = true;
   programs.dconf.enable = true;
 
+  services.emacs = {
+    enable = true;
+    package = pkgs.emacs;
+  };
+
   environment.systemPackages = with pkgs; [
     unstable-pkgs.telegram-desktop
+    emacs
     discord
     powertop
     vscodium

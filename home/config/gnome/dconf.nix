@@ -616,7 +616,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/applications" = {
-      blur = true;
+      blur = false;
       blur-on-overview = false;
       dynamic-opacity = false;
       enable-all = true;
@@ -715,7 +715,7 @@ with lib.hm.gvariant;
       custom-locale = "ja-JP";
       font-size = 12;
       formatter = "01_luxon";
-      pattern = "EEE  dd日  HH:mm";
+      pattern = "EEE  dd日 HH:mm";
       text-align = "center";
       update-level = 1;
       use-default-calendar = true;
@@ -769,7 +769,7 @@ with lib.hm.gvariant;
       invert-speed = false;
     };
 
-    "org/gnome/shell/extensions/space-bar/appearance" = {
+"org/gnome/shell/extensions/space-bar/appearance" = {
       active-workspace-background-color = "rgba(255,255,255,0)";
       active-workspace-border-color = "rgba(0,0,0,0)";
       active-workspace-border-radius = 30;
@@ -780,7 +780,8 @@ with lib.hm.gvariant;
       active-workspace-font-weight = "900";
       active-workspace-padding-v = 5;
       active-workspace-text-color = "rgb(192,97,203)";
-      application-styles = ".space-bar {n  -natural-hpadding: 15px;n}nn.space-bar-workspace-label.active {n  margin: 0 5px;n  background-color: rgba(255,255,255,0);n  color: rgb(192,97,203);n  border-color: rgba(0,0,0,0);n  font-weight: 900;n  border-radius: 30px;n  border-width: 0px;n  padding: 5px 8px;n  font-size: 11pt;n}nn.space-bar-workspace-label.inactive {n  margin: 0 5px;n  background-color: rgba(0,0,0,0);n  color: rgba(255,255,255,1);n  border-color: rgba(0,0,0,0);n  font-weight: 900;n  border-radius: 30px;n  border-width: 0px;n  padding: 5px 8px;n  font-size: 11pt;n}nn.space-bar-workspace-label.inactive.empty {n  margin: 0 5px;n  background-color: rgba(0,0,0,0);n  color: rgba(255,255,255,0.5);n  border-color: rgba(0,0,0,0);n  font-weight: 900;n  border-radius: 30px;n  border-width: 0px;n  padding: 5px 8px;n  font-size: 11pt;n}";
+      application-styles =
+        ".space-bar {n  -natural-hpadding: 15px;n}nn.space-bar-workspace-label.active {n  margin: 0 5px;n  background-color: rgba(255,255,255,0);n  color: rgb(192,97,203);n  border-color: rgba(0,0,0,0);n  font-weight: 900;n  border-radius: 30px;n  border-width: 0px;n  padding: 5px 8px;n  font-size: 11pt;n}nn.space-bar-workspace-label.inactive {n  margin: 0 5px;n  background-color: rgba(0,0,0,0);n  color: rgba(255,255,255,1);n  border-color: rgba(0,0,0,0);n  font-weight: 900;n  border-radius: 30px;n  border-width: 0px;n  padding: 5px 8px;n  font-size: 11pt;n}nn.space-bar-workspace-label.inactive.empty {n  margin: 0 5px;n  background-color: rgba(0,0,0,0);n  color: rgba(255,255,255,0.5);n  border-color: rgba(0,0,0,0);n  font-weight: 900;n  border-radius: 30px;n  border-width: 0px;n  padding: 5px 8px;n  font-size: 11pt;n}";
       empty-workspace-border-radius = 30;
       empty-workspace-border-width = 0;
       empty-workspace-font-size = 11;
@@ -821,7 +822,7 @@ with lib.hm.gvariant;
     "org/gnome/shell/extensions/space-bar/state" = {
       version = 34;
       workspace-names-map = ''
-        {"org.gnome.Extensions":["一"],"org.gnome.Shell.Extensions":["一"],"org.wezfurlong.wezterm":["一"],"zen-beta":["二"]}\n
+        {"org.gnome.Extensions":["一"],"org.gnome.Shell.Extensions":["一"],"org.wezfurlong.wezterm":["一"],"zen-beta":["二"]}
       '';
     };
 

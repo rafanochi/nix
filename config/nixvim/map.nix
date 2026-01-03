@@ -101,7 +101,7 @@
       {
         mode = "v";
         key = "<leader>Y";
-        action = "\"+Y";
+        action = "\"+y";
       }
       {
         mode = "n";
