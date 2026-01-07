@@ -126,14 +126,8 @@
   programs.zsh.enable = true;
   programs.dconf.enable = true;
 
-  services.emacs = {
-    enable = true;
-    package = pkgs.emacs;
-  };
-
   environment.systemPackages = with pkgs; [
     unstable-pkgs.telegram-desktop
-    emacs
     discord
     powertop
     vscodium

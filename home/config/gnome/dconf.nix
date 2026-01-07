@@ -809,7 +809,7 @@ with lib.hm.gvariant;
       indicator-style = "workspaces-bar";
       position = "left";
       scroll-wheel-wrap-around = false;
-      show-empty-workspaces = true;
+      show-empty-workspaces = false;
       smart-workspace-names = false;
       toggle-overview = true;
     };

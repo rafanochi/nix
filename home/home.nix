@@ -21,6 +21,7 @@ in {
 
   home.packages = with pkgs; [
     zen-browser.packages."${system}".default
+    protonvpn-gui
     zellij
     handbrake
     nixfmt-classic
