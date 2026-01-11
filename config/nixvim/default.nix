@@ -10,21 +10,46 @@
     vimAlias = true;
     luaLoader.enable = true;
 
+    # Disable colorscheme influence for syntax highlighting
     colorschemes = {
       base16 = {
         enable = true;
         colorscheme = "material-darker";
         settings = {
-          cmp = true;
-          illuminate = true;
-          indentblankline = true;
-          lsp_semantic = true;
-          mini_completion = true;
-          telescope = true;
+          cmp = false;
+          illuminate = false;
+          indentblankline = false;
+          lsp_semantic = false; # important
+          mini_completion = false;
+          telescope = false;
           telescope_borders = false;
         };
       };
     };
+
+    # Optional: override Tree-sitter captures if you want colors
+    # highlight = {
+    #   "@function" = {
+    #     fg = "#82aaff";
+    #     bold = false;
+    #   };
+    #   "@keyword" = {
+    #     fg = "#ffffff";
+    #     bold = false;
+    #   };
+    #   "@comment" = {
+    #     fg = "#7f848e";
+    #     italic = true;
+    #   };
+    #   "@string" = { fg = "#a6e3a1"; };
+
+    #   "@type.builtin" = { fg = "#ffffff"; };
+    #   "@type.qualifier" = { fg = "#ffffff"; };
+    #   "@namespace" = { fg = "#ffffff"; };
+    #   "@property" = { fg = "#ffffff"; };
+    #   "@field" = { fg = "#ffffff"; };
+    #   "@punctuation" = { fg = "#0d0d0d"; };
+    # };
 
     plugins = {
       lsp.servers.dockerls.package =
@@ -32,42 +57,25 @@
     };
 
     diagnostic.settings = {
-      signs = true; # keep signs in gutter
-      underline = true; # underline issues in text
-      update_in_insert = false; # don’t spam while typing
+      signs = true;
+      underline = true;
+      update_in_insert = false;
       virtual_text = false;
 
       float = {
-        source = "always"; # show source (e.g. pyright) in float
+        source = "always";
         border = "rounded";
       };
     };
 
+    # remove vim.cmd highlights entirely
     extraConfigLuaPost = ''
-      -- Make background transparent
-      vim.cmd [[
-        highlight Normal guibg=NONE ctermbg=NONE
-        highlight NormalNC guibg=NONE ctermbg=NONE
-        highlight Pmenu guibg=NONE ctermbg=NONE
-        highlight SignColumn guibg=NONE ctermbg=NONE
-        highlight VertSplit guibg=NONE ctermbg=NONE
-        highlight StatusLine guibg=NONE ctermbg=NONE
-        highlight LineNr guibg=NONE ctermbg=NONE
-        highlight CursorLineNr guibg=NONE ctermbg=NONE
-        highlight FoldColumn guibg=NONE ctermbg=NONE
-        highlight WinSeparator guibg=NONE ctermbg=NONE
-      ]]  
-
       vim.lsp.config.hls = {
         settings = {
-          haskell = {
-            formattingProvider = "fourmolu",
-          },
+          haskell = { formattingProvider = "fourmolu" },
         },
       }
-      
-      vim.lsp.enable("hls")      
-
+      vim.lsp.enable("hls")
     '';
 
     extraPackages = with pkgs; [ jdt-language-server ueberzugpp ];

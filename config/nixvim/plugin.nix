@@ -18,7 +18,11 @@
     lualine = { enable = true; };
 
     # Includes all parsers for treesitter
-    treesitter = { enable = true; };
+    treesitter = {
+      enable = true;
+      settings.highlight.enable = true;
+      settings.highlight.disable = [ ]; # empty = enable for all languages
+    };
 
     # Icons 
     web-devicons.enable = true;
