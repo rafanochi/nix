@@ -3,12 +3,15 @@
 let configModules = import ./config;
 in {
   imports = [
+    zen-browser.homeModules.default
     configModules.zsh
     configModules.git
     configModules.vscode
     configModules.wezterm
     configModules.gnome
     configModules.zed
+    configModules.zen
+    configModules.keepassxc
     # configModules.i3wm
     # configModules.haskell
     # configModules.ideavim
@@ -20,7 +23,7 @@ in {
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
-    zen-browser.packages."${system}".default
+    keepassxc
     protonvpn-gui
     zellij
     handbrake

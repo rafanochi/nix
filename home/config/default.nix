@@ -8,8 +8,10 @@
   plasma = import ./plasma;
   hyprland = import ./hyprland;
   alacritty = ./alacritty;
-  zed = ./zed;
-  wezterm = ./wezterm;
-  haskell = ./haskell;
-  i3wm = ./i3;
+  zed = import ./zed;
+  wezterm = import ./wezterm;
+  haskell = import ./haskell;
+  i3wm = import ./i3;
+  keepassxc = import ./keepassxc;
+  zen = import ./zen;
 }

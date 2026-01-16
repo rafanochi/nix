@@ -674,7 +674,7 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/extensions/audio-visual" = {
       bar-color = "rgba(220, 138, 221, 1.00)";
-      bar-count = 50;
+      bar-count = 40;
       bottom-padding = 6;
       gradient-color = "rgba(192, 97, 203, 1.00)";
       hide-when-silent = false;

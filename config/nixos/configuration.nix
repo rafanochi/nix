@@ -42,25 +42,43 @@
   services.gnome.core-developer-tools.enable = false;
   services.gnome.games.enable = false;
 
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-tour
-    gnome-user-docs
-    gnome-maps
-    gnome-weather
-    gnome-clocks
-    gnome-contacts
-    gnome-music
-    gnome-calendar
-    gnome-text-editor
-    gnome-characters
-    simple-scan
-    decibels
-    geary
-    totem
-    snapshot
-    xterm
-    yelp
-    xterm
+  # environment.gnome.excludePackages = with pkgs; [
+  #   gnome-tour
+  #   gnome-user-docs
+  #   gnome-maps
+  #   gnome-weather
+  #   gnome-clocks
+  #   gnome-contacts
+  #   gnome-music
+  #   gnome-calendar
+  #   gnome-text-editor
+  #   gnome-characters
+  #   simple-scan
+  #   decibels
+  #   geary
+  #   totem
+  #   snapshot
+  #   xterm
+  #   yelp
+  #   xterm
+  # ];
+
+  environment.systemPackages = with pkgs; [
+    unstable-pkgs.telegram-desktop
+    discord
+    powertop
+    vscodium
+    qbittorrent
+    upscayl
+    onlyoffice-desktopeditors
+    obs-studio
+    postman
+    gimp
+    ntfs3g
+    udisks2
+    gnome.gvfs
+    os-prober
+    noto-fonts-cjk-sans
   ];
 
   services.xserver = {
@@ -125,24 +143,6 @@
 
   programs.zsh.enable = true;
   programs.dconf.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    unstable-pkgs.telegram-desktop
-    discord
-    powertop
-    vscodium
-    qbittorrent
-    upscayl
-    onlyoffice-desktopeditors
-    obs-studio
-    postman
-    gimp
-    ntfs3g
-    udisks2
-    gnome.gvfs
-    os-prober
-    noto-fonts-cjk-sans
-  ];
 
   services.udisks2.enable = true;
 

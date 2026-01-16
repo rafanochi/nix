@@ -16,18 +16,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zen-browser = { url = "github:0xc000022070/zen-browser-flake"; };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , nixpkgs-unstable
-    , home-manager
-    , nixvim
-    , zen-browser
-    , ...
-    }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixvim, zen-browser
+    , firefox-addons, ... }@inputs:
     let
       system = "x86_64-linux";
       username = "shahruz";
@@ -42,8 +46,7 @@
         config.allowUnfree = true;
       };
 
-    in
-    {
+    in {
       nixosConfigurations."${hostname}" = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit unstable-pkgs; };
         modules = [
@@ -56,8 +59,16 @@
             home-manager.users."${username}" = import ./home/home.nix;
             home-manager.backupFileExtension = "backup";
             home-manager.extraSpecialArgs = {
-              inherit zen-browser system username hostname;
+              inherit zen-browser system username hostname firefox-addons;
             };
+            networking.firewall = rec {
+              allowedTCPPortRanges = [{
+                from = 1714;
+                to = 1764;
+              }];
+              allowedUDPPortRanges = allowedTCPPortRanges;
+            };
+
           }
           # Symlink module
           {
@@ -75,12 +86,21 @@
           inherit pkgs;
 
           extraSpecialArgs = {
-            inherit unstable-pkgs zen-browser system username hostname;
+            inherit unstable-pkgs zen-browser system username hostname
+              firefox-addons;
           };
           modules = [
             ({ config, pkgs, ... }: {
               home.username = "shahruz";
               home.homeDirectory = "/home/shahruz";
+              networking.firewall = rec {
+                allowedTCPPortRanges = [{
+                  from = 1714;
+                  to = 1764;
+                }];
+                allowedUDPPortRanges = allowedTCPPortRanges;
+              };
+
             })
             nixvim.homeManagerModules.nixvim
             ./config/nixvim
