@@ -892,7 +892,7 @@ with lib.hm.gvariant;
       enable-custom-label-in-menu = true;
       indicator-style = "workspaces-bar";
       position = "left";
-      scroll-wheel-wrap-around = true;
+      scroll-wheel-wrap-around = false;
       show-empty-workspaces = true;
       smart-workspace-names = false;
       toggle-overview = true;
