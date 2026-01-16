@@ -723,7 +723,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/dash-to-panel" = {
-      blur-original-panel = true;
+      blur-original-panel = false;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/hidetopbar" = {
@@ -735,6 +735,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/overview" = {
+      blur = true;
       pipeline = "pipeline_default_rounded";
       style-components = 3;
     };
@@ -748,7 +749,8 @@ with lib.hm.gvariant;
       pipeline = "pipeline_default";
       sigma = 0;
       static-blur = false;
-      style-panel = 3;
+      style-panel = 0;
+      unblur-in-overview = true;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/screenshot" = {
@@ -890,8 +892,8 @@ with lib.hm.gvariant;
       enable-custom-label-in-menu = true;
       indicator-style = "workspaces-bar";
       position = "left";
-      scroll-wheel-wrap-around = false;
-      show-empty-workspaces = false;
+      scroll-wheel-wrap-around = true;
+      show-empty-workspaces = true;
       smart-workspace-names = false;
       toggle-overview = true;
     };
