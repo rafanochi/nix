@@ -73,7 +73,7 @@
       extensions = with pkgs.vscode-extensions; [
         emroussel.atomize-atom-one-dark-theme
         haskell.haskell
-        asvetliakov.vscode-neovim
+        # asvetliakov.vscode-neovim
         bbenoist.nix
         jnoortheen.nix-ide
         tobiasalthoff.atom-material-theme

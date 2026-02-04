@@ -1,4 +1,4 @@
-{ pkgs, unstable-pkgs, ... }:
+{ pkgs, unstable-pkgs, lib, ... }:
 
 {
   # Bootloader.
@@ -79,6 +79,7 @@
     gnome.gvfs
     os-prober
     noto-fonts-cjk-sans
+    pciutils
   ];
 
   services.xserver = {

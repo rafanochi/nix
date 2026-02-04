@@ -1,7 +1,9 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./dconf.nix ./gsconnect.nix ];
+  imports = [ 
+    ./dconf.nix 
+    ./gsconnect.nix ];
 
   # qt.enable = true;
   # qt.platformTheme = "gnome";
@@ -21,6 +23,7 @@
     gnomeExtensions.color-picker
     gnomeExtensions.space-bar
     gnomeExtensions.date-menu-formatter
+    gnomeExtensions.window-is-ready-remover
     gnome-tweaks
     adwaita-qt
     adwaita-icon-theme

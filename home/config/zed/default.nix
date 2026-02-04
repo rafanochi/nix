@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   programs.zed-editor = {
     enable = true;
     userSettings = {
@@ -11,6 +10,11 @@
       theme = {
         light = "Gruvbox Light Hard";
         dark = "Gruvbox Dark Hard";
+      };
+
+      rust-analyzer = {
+        procMacro.enable = true;
+        cargo = { targetDir = "target/zed"; };
       };
     };
   };

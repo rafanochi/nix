@@ -23,6 +23,7 @@ in {
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
+    zoom-us
     keepassxc
     protonvpn-gui
     zellij

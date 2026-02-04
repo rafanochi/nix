@@ -198,6 +198,8 @@
           enable = true;
           installRustc = true;
           installCargo = true;
+
+          settings = { procMacro = { enable = true; }; };
         };
       };
     };

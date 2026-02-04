@@ -655,6 +655,7 @@ with lib.hm.gvariant;
         "space-bar@luchrioh"
         "blur-my-shell@aunetx"
         "date-menu-formatter@marcinjakubowski.github.com"
+        "windowIsReady_Remover@nunofarruca@gmail.com"
       ];
       favorite-apps = [
         "org.gnome.Nautilus.desktop"
@@ -732,6 +733,7 @@ with lib.hm.gvariant;
       static-blur = true;
       style-dash-to-dock = 0;
       unblur-in-overview = false;
+
     };
 
     "org/gnome/shell/extensions/blur-my-shell/dash-to-panel" = {
@@ -807,6 +809,7 @@ with lib.hm.gvariant;
       show-windows-preview = false;
       transparency-mode = "DEFAULT";
       workspace-agnostic-urgent-windows = true;
+      click-action = "minimize";
     };
 
     "org/gnome/shell/extensions/date-menu-formatter" = {
