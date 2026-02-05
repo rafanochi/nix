@@ -28,10 +28,26 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    relago = {
+
+      url = "github:xinux-org/relago/bootstrap-relago-module";
+
+      inputs = {
+
+        nixpkgs.follows = "nixpkgs";
+
+        nixpkgs-unstable.follows = "nixpkgs-unstable";
+
+      };
+    };
+
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixvim, zen-browser
-    , firefox-addons, ... }@inputs:
+    , relago, firefox-addons, disko, ... }@inputs:
     let
       system = "x86_64-linux";
       username = "shahruz";
@@ -50,6 +66,8 @@
       nixosConfigurations."${hostname}" = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit unstable-pkgs; };
         modules = [
+          disko.nixosModules.disko
+          relago.nixosModules.relago
           nixvim.nixosModules.nixvim
           home-manager.nixosModules.home-manager
           ./config
