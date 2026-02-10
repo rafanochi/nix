@@ -57,4 +57,6 @@ in {
       ln -sf "$f" "$HOME/.local/share/applications/$(basename "$f")"
     done
   '';
+
+  home.file.".zen/*/search.json.mozlz4".force = lib.mkForce true;
 }

@@ -7,6 +7,7 @@
 
     profiles."*" = {
       spacesForce = true;
+      search.default = "ddg";
       spaces = {
         Default = {
           id = "c6de089c-410d-4206-961d-ab11f988d40a";

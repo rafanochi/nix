@@ -7,7 +7,7 @@
     ./hardware-configuration.nix
     ./steam.nix
     ./kvm.nix
-    ./disko.nix
+    # ./disko.nix
     # ./kde.nix
   ];
 }

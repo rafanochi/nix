@@ -1,4 +1,4 @@
-{ pkgs, unstable-pkgs, lib, ... }:
+{ pkgs, unstable-pkgs, lib, inputs, config, ... }:
 
 {
   # Bootloader.
@@ -15,12 +15,14 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.kernelParams = [ "usbcore.autosuspend=-1" ];
 
   networking.hostName = "tya"; # Define your hostname.
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.nvidia.acceptLicense = true;
 
   networking.networkmanager.enable = true;
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
@@ -32,10 +34,10 @@
 
   time.timeZone = "Asia/Tashkent";
 
-  i18n = {
-    supportedLocales = [ "en_US.UTF-8/UTF-8" "ru_RU.UTF-8/UTF-8" ];
-    defaultLocale = "en_US.UTF-8";
-  };
+  # i18n = {
+  #   supportedLocales = [ "en_US.UTF-8/UTF-8" "ru_RU.UTF-8/UTF-8" ];
+  #   defaultLocale = "en_US.UTF-8";
+  # };
 
   # services.printing.enable = true;
 
@@ -188,4 +190,5 @@
     # user = users.users.lambdajon;
 
   };
+
 }
