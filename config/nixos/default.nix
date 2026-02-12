@@ -2,7 +2,8 @@
 
 {
   imports = [
-    ./nvidia.nix
+    # ./nvidia.nix
+    ./nvidia-rtx.nix
     ./configuration.nix
     ./hardware-configuration.nix
     ./steam.nix

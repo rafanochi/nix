@@ -1,20 +1,15 @@
-{ config, lib, nixpkgs, ... }:
-
-{
-  boot.kernelParams = [ "module_blacklist=i915" ];
-
-  services.xserver.videoDrivers = [ "nvidia" ];
+{ config, lib, nixpkgs, ... }: { services.xserver.videoDrivers = [ "nvidia" ];
   # Enable OpenGL
   hardware.graphics = { enable = true; };
 
   hardware.nvidia = {
-    open = false;
+    open = true;
     modesetting.enable = true;
     nvidiaSettings = true;
     powerManagement.enable = false;
     # powerManagement.finegrained = false;
     # package = config.boot.kernelPackages.nvidiaPackages.stable;
-    package = config.boot.kernelPackages.nvidiaPackages.legacy_535; # Older versions
+    package = config.boot.kernelPackages.nvidiaPackages.stable; # Older versions
 
   };
 
