@@ -26,6 +26,44 @@
           { key = '7', mods = 'ALT', action = wezterm.action.ActivateTab(6) },
           { key = '8', mods = 'ALT', action = wezterm.action.ActivateTab(7) },
           { key = '9', mods = 'ALT', action = wezterm.action.ActivateTab(8) },
+
+          { key = 'm', mods = 'CMD', action = wezterm.action.Nop },
+
+          {
+            key = 'h',
+            mods = 'ALT',
+            action = wezterm.action.ActivatePaneDirection 'Left',
+          },
+          {
+            key = 'l',
+            mods = 'ALT',
+            action = wezterm.action.ActivatePaneDirection 'Right',
+          },
+          {
+            key = 'k',
+            mods = 'ALT',
+            action = wezterm.action.ActivatePaneDirection 'Up',
+          },
+          {
+            key = 'j',
+            mods = 'ALT',
+            action = wezterm.action.ActivatePaneDirection 'Down',
+          },
+          {
+            key = 'w',
+            mods = 'ALT',
+            action = wezterm.action.CloseCurrentPane { confirm = true },
+          },
+          {
+            key = 'v',
+            mods = 'ALT',
+            action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+          },
+          {
+            key = 's',
+            mods = 'ALT',
+            action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+          },
         },
       }
     '';

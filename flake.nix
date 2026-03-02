@@ -28,6 +28,13 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-data = {
+      url = "github:xinux-org/nix-data";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixvim, zen-browser
@@ -46,11 +53,32 @@
       };
 
     in {
+
+      systems.modules.nixos = with inputs; [
+        nix-data.nixosModules.nix-data
+        xinux-modules.nixosModules.efiboot
+        xinux-modules.nixosModules.gnome
+        xinux-modules.nixosModules.kernel
+        xinux-modules.nixosModules.networking
+        xinux-modules.nixosModules.packagemanagers
+        xinux-modules.nixosModules.pipewire
+        xinux-modules.nixosModules.printing
+        xinux-modules.nixosModules.xinux
+        xinux-modules.nixosModules.metadata
+      ];
+
       nixosConfigurations."tya" = nixpkgs.lib.nixosSystem {
 
         specialArgs = { inherit unstable-pkgs inputs; };
 
         modules = [
+          # For home-manager
+          # inputs.spicetify-nix.homeManagerModules.default
+
+          # For NixOS
+          inputs.spicetify-nix.nixosModules.default
+
+          inputs.nix-data.nixosModules.nix-data
           nixvim.nixosModules.nixvim
           home-manager.nixosModules.home-manager
           ./config

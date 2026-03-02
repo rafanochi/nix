@@ -24,6 +24,8 @@
     gnomeExtensions.space-bar
     gnomeExtensions.date-menu-formatter
     gnomeExtensions.window-is-ready-remover
+    gnomeExtensions.tray-icons-reloaded
+    gnomeExtensions.status-icons
     gnome-tweaks
     adwaita-qt
     adwaita-icon-theme

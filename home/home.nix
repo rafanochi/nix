@@ -11,6 +11,7 @@ in {
     configModules.gnome
     configModules.zed
     configModules.zen
+    # configModules.zellij
     configModules.keepassxc
     # configModules.i3wm
     # configModules.haskell
@@ -23,10 +24,12 @@ in {
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
+    element-web
+    fractal
+    github-desktop
     zoom-us
     keepassxc
     protonvpn-gui
-    zellij
     handbrake
     nixfmt-classic
     nixd

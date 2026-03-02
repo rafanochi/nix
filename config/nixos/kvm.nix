@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = [ "shahruz" ];
-  users.users.shahruz.extraGroups = [ "libvirtd" ];
+  users.users.shahruz.extraGroups = [ "libvirtd" "kvm" ];
   virtualisation.spiceUSBRedirection.enable = true;
 
   virtualisation.libvirtd = {

@@ -14,4 +14,6 @@
   i3wm = import ./i3;
   keepassxc = import ./keepassxc;
   zen = import ./zen;
+  zellij = import ./zellij;
+  spicetify = import ./spicetify;
 }

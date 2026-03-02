@@ -154,7 +154,10 @@
         tailwindcss.enable = true; # TailwindCSS
         html.enable = true; # HTML
         astro.enable = true; # AstroJS
-        phpactor.enable = true; # PHP
+        phpactor = {
+          enable = true; # PHP
+          filetypes = [".php"];
+        };
         svelte.enable = false; # Svelte
         pyright.enable = true; # Python
         marksman.enable = true; # Markdown

@@ -668,6 +668,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/keybindings" = {
+      show-screenshot-ui = [ "<Super>p" ];
       switch-to-application-1 = [ ];
       switch-to-application-2 = [ ];
       switch-to-application-3 = [ ];
@@ -826,8 +827,13 @@ with lib.hm.gvariant;
     "org/gnome/shell/extensions/in-picture" = {
       corner = 1;
       diagonal-relative = 30;
-      gnome-version = "49.2";
       stick = true;
+      gnome-version = "49.2";
+      identifiers = [
+        [ "Picture-in-Picture" "" ]
+        [ "Picture in picture" "" ]
+        [ "TelegramDesktop" "" ]
+      ];
     };
 
     "org/gnome/shell/extensions/just-perfection" = {
@@ -898,7 +904,8 @@ with lib.hm.gvariant;
     "org/gnome/shell/extensions/space-bar/behavior" = {
       always-show-numbers = false;
       custom-label-named = ''
-        {{name}}
+        {
+          {name}}
       '';
       custom-label-unnamed = ''
         {{number}}
@@ -1059,3 +1066,4 @@ with lib.hm.gvariant;
 
   };
 }
+

@@ -15,7 +15,7 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "usbcore.autosuspend=-1" ];
 
   networking.hostName = "tya"; # Define your hostname.
@@ -23,6 +23,9 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.nvidia.acceptLicense = true;
+  nixpkgs.config.permittedInsecurePackages = [ "olm-3.2.16" ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [ "google-chrome" ];
 
   networking.networkmanager.enable = true;
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
@@ -44,29 +47,12 @@
   services.gnome.core-developer-tools.enable = false;
   services.gnome.games.enable = false;
 
-  # environment.gnome.excludePackages = with pkgs; [
-  #   gnome-tour
-  #   gnome-user-docs
-  #   gnome-maps
-  #   gnome-weather
-  #   gnome-clocks
-  #   gnome-contacts
-  #   gnome-music
-  #   gnome-calendar
-  #   gnome-text-editor
-  #   gnome-characters
-  #   simple-scan
-  #   decibels
-  #   geary
-  #   totem
-  #   snapshot
-  #   xterm
-  #   yelp
-  #   xterm
-  # ];
-
   environment.systemPackages = with pkgs; [
+    webkitgtk_4_1
+    element-desktop
+    php
     unstable-pkgs.telegram-desktop
+    unstable-pkgs.nix-sweep
     discord
     powertop
     vscodium
@@ -151,7 +137,7 @@
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 80 443 ];
+    allowedTCPPorts = [ 80 443 8888 5500 1003 ];
   };
 
   services.udev.packages = [ pkgs.gnome-settings-daemon ];
@@ -182,4 +168,67 @@
   };
 
   system.stateVersion = "25.11"; # Did you read the comment?
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [ aapt ];
+
+  services.e-imzo.enable = true;
+
+  programs.nix-data = {
+    enable = true;
+    systemconfig = "/home/shahruz/nix/config/nixos/configuration.nix";
+    flake = "/home/shahruz/nix/flake.nix";
+    flakearg = "tya";
+  };
+
+  # PHP
+  # services.httpd.phpPackage = pkgs.php.buildEnv {
+  #   extensions = ({ enabled, all }: enabled ++ (with all; [ xdebug ]));
+  #   extraConfig = ''
+  #     xdebug.mode=debug
+  #   '';
+  # };
+
+  services.httpd = {
+    enable = true;
+    enablePHP = true;
+    virtualHosts.default = {
+      listen = [{
+        ip = "*";
+        port = 80;
+      }];
+      documentRoot = "/var/www/page";
+    };
+  };
+
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+  };
+
+  systemd.tmpfiles.rules =
+    [ "d /var/www/page" "f /var/www/page/index.php - - - - <?php phpinfo();" ];
+
+  programs.spicetify = let
+    spicePkgs =
+      inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  in {
+    enable = true;
+
+    enabledExtensions = with spicePkgs.extensions; [
+      adblock
+      hidePodcasts
+      shuffle # shuffle+ (special characters are sanitized out of extension names)
+    ];
+    enabledCustomApps = with spicePkgs.apps; [
+      newReleases
+      ncsVisualizer
+      marketplace
+    ];
+    enabledSnippets = with spicePkgs.snippets; [ rotatingCoverart pointer ];
+
+    theme = spicePkgs.themes.catppuccin;
+    colorScheme = "mocha";
+  };
+
 }
