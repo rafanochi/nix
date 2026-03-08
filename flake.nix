@@ -1,10 +1,14 @@
 {
-  description = "Unified Flake for NixOS and Arch Linux";
-
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # The name "snowfall-lib" is required due to how Snowfall Lib processes your
+    # flake's inputs.
+    snowfall-lib = {
+      url = "github:snowfallorg/lib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
@@ -34,142 +38,45 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    mac-style-plymouth = {
+      url = "github:xinux-org/xinux-plymouth-theme";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixvim, zen-browser
-    , firefox-addons, ... }@inputs:
-    let
-      system = "x86_64-linux";
-      username = "shahruz";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
+  # We will handle this in the next section.
+  outputs = inputs:
+    inputs.snowfall-lib.mkFlake {
+      inherit inputs;
+      src = ./.;
 
-      unstable-pkgs = import nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
-      };
+      # Extra nix flags to set
+      outputs-builder = channels: { formatter = channels.nixpkgs.nixfmt-tree; };
 
-    in {
+      channels-config = {
+        allowUnfree = true;
+        allowUnsupportedSystem = true;
+        allowUnfreePredicate = _: true;
+        allowBroken = true;
+
+        nvidia.acceptLicense = true;
+
+        permittedInsecurePackages = [ "olm-3.2.16" ];
+      };
 
       systems.modules.nixos = with inputs; [
         nix-data.nixosModules.nix-data
-        xinux-modules.nixosModules.efiboot
-        xinux-modules.nixosModules.gnome
-        xinux-modules.nixosModules.kernel
-        xinux-modules.nixosModules.networking
-        xinux-modules.nixosModules.packagemanagers
-        xinux-modules.nixosModules.pipewire
-        xinux-modules.nixosModules.printing
-        xinux-modules.nixosModules.xinux
-        xinux-modules.nixosModules.metadata
+        nixvim.nixosModules.nixvim
       ];
 
-      nixosConfigurations."tya" = nixpkgs.lib.nixosSystem {
+      homes.modules = with inputs; [ zen-browser.homeModules.default ];
 
-        specialArgs = { inherit unstable-pkgs inputs; };
+      # Add modules to all homes.
+      # homes.modules = with inputs; [ firefox-addons zen-browser ];
 
-        modules = [
-          # For home-manager
-          # inputs.spicetify-nix.homeManagerModules.default
-
-          # For NixOS
-          inputs.spicetify-nix.nixosModules.default
-
-          inputs.nix-data.nixosModules.nix-data
-          nixvim.nixosModules.nixvim
-          home-manager.nixosModules.home-manager
-          ./config
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users."${username}" = import ./home/home.nix;
-            home-manager.backupFileExtension = "backup";
-            home-manager.extraSpecialArgs = let hostname = "tya";
-            in { inherit zen-browser system username hostname firefox-addons; };
-            networking.firewall = rec {
-              allowedTCPPortRanges = [{
-                from = 1714;
-                to = 1764;
-              }];
-              allowedUDPPortRanges = allowedTCPPortRanges;
-            };
-
-          }
-          # Symlink module
-          {
-            system.activationScripts.nixvimSymlinks.text = ''
-              mkdir -p /usr/local/bin
-              ln -sf ${pkgs.neovim}/bin/nvim /usr/local/bin/vim
-              ln -sf ${pkgs.neovim}/bin/nvim /usr/local/bin/vi
-            '';
-          }
-        ];
-      };
-
-      nixosConfigurations."tower" = inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit unstable-pkgs; };
-
-        modules = [
-          nixvim.nixosModules.nixvim
-          home-manager.nixosModules.home-manager
-          ./config
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users."${username}" = import ./home/home.nix;
-            home-manager.backupFileExtension = "back";
-            home-manager.extraSpecialArgs = let hostname = "tya";
-            in { inherit zen-browser system username hostname firefox-addons; };
-            networking.firewall = rec {
-              allowedTCPPortRanges = [{
-                from = 1714;
-                to = 1764;
-              }];
-              allowedUDPPortRanges = allowedTCPPortRanges;
-            };
-
-          }
-          # Symlink module
-          {
-            system.activationScripts.nixvimSymlinks.text = ''
-              mkdir -p /usr/local/bin
-              ln -sf ${pkgs.neovim}/bin/nvim /usr/local/bin/vim
-              ln -sf ${pkgs.neovim}/bin/nvim /usr/local/bin/vi
-            '';
-
-          }
-        ];
-
-      };
-
-      # homeConfigurations."${username}" =
-      #   home-manager.lib.homeManagerConfiguration {
-      #     inherit pkgs;
-
-      #     extraSpecialArgs = {
-      #       inherit unstable-pkgs zen-browser system username hostname
-      #         firefox-addons;
-      #     };
-      #     modules = [
-      #       ({ config, pkgs, ... }: {
-      #         home.username = "shahruz";
-      #         home.homeDirectory = "/home/shahruz";
-      #         networking.firewall = rec {
-      #           allowedTCPPortRanges = [{
-      #             from = 1714;
-      #             to = 1764;
-      #           }];
-      #           allowedUDPPortRanges = allowedTCPPortRanges;
-      #         };
-
-      #       })
-      #       nixvim.homeManagerModules.nixvim
-      #       ./config/nixvim
-      #       ./home/home.nix
-      #     ];
-      #   };
+      # Add modules to a specific home.
+      homes.users."shahruz".specialArgs = { };
     };
 }
+
