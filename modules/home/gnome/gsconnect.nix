@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  services.kdeconnect.enable = true;
+  # services.kdeconnect.enable = true;
 
   programs.gnome-shell = {
     enable = true;

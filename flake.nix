@@ -3,6 +3,12 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+        # Nix-darwin for macOS systems management
+    darwin = {
+      url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # The name "snowfall-lib" is required due to how Snowfall Lib processes your
     # flake's inputs.
     snowfall-lib = {
