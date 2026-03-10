@@ -20,11 +20,9 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
 
   programs.zsh.enable = true;
-  programs.dconf.enable = true;
 
   services.udisks2.enable = true;
 
-  services.udev.packages = [ pkgs.gnome-settings-daemon ];
   users.defaultUserShell = pkgs.zsh;
 
   services.postgresql = {
@@ -99,4 +97,3 @@
     ln -sf ${pkgs.neovim}/bin/nvim /usr/local/bin/vi
   '';
 }
-

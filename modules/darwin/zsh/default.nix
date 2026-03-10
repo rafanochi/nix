@@ -1,6 +1,8 @@
 {pkgs, ... }:
 {
   config = {
+
+    # homebrew.enableZshIntegration = true;
     programs = {
       # Installing zsh for system
       zsh = {
@@ -9,7 +11,7 @@
         enableBashCompletion = true;
         enableSyntaxHighlighting = true;
 
-        
+
 
     # plugins = [
     #   {
@@ -52,12 +54,12 @@
       };
 
       # Automatic flake devShell loading
-      direnv = {
-        enable = true;
-        silent = true;
-        loadInNixShell = false;
-        nix-direnv.enable = true;
-      };
+      # direnv = {
+      #   enable = true;
+      #   silent = true;
+      #   loadInNixShell = false;
+      #   nix-direnv.enable = true;
+      # };
 
       # Replace commant not found with nix-index
       nix-index = {

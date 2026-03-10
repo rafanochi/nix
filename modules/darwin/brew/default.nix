@@ -32,7 +32,6 @@
       "cleanmymac"
       "element"
       "iterm2"
-      "gitfox"
       # "logitech-options"
       # "minecraft"
       # "nextcloud"
@@ -40,7 +39,7 @@
       # "openscad"
       # "prismlauncher"
       # "raspberry-pi-imager"
-      "sf-symbols"
+      # "sf-symbols"
       "zen"
       # "zulip"
     ];
