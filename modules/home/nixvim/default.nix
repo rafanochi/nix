@@ -84,6 +84,7 @@
 
       require('transparent').clear_prefix('BufferLine')
       require('transparent').clear_prefix('NeoTree')
+      require('transparent').clear_prefix('Gitsigns')
 
       -- transparent background
       -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
