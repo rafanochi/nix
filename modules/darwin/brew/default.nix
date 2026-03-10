@@ -33,6 +33,7 @@
       "element"
       "iterm2"
       "zed"
+      "gimp"
       # "logitech-options"
       # "minecraft"
       # "nextcloud"
@@ -40,7 +41,8 @@
       # "openscad"
       # "prismlauncher"
       # "raspberry-pi-imager"
-      # "sf-symbols"
+      "sf-symbols"
+      "font-sf-mono-nerd-font-ligaturized"
       "zen"
       # "zulip"
     ];

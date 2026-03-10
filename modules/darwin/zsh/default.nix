@@ -11,8 +11,6 @@
         enableBashCompletion = true;
         enableSyntaxHighlighting = true;
 
-
-
     # plugins = [
     #   {
     #     name = "zsh-nix-shell";

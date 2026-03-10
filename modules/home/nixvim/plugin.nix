@@ -4,6 +4,23 @@
   programs.nixvim.plugins = {
     bufdelete.enable = true;
 
+    transparent = {
+      autoLoad = true;
+      enable = true;
+      settings = {
+      extra_groups = [
+         "NormalFloat"
+         "NvimTreeNormal"
+         "SignColumn"
+         "Normal" "NormalNC" "Comment" "Constant" "Special" "Identifier"
+         "Statement" "PreProc" "Type" "Underlined" "Todo" "String" "Function"
+         "Conditional" "Repeat" "Operator" "Structure" "LineNr" "NonText"
+         "SignColumn" "CursorLine" "CursorLineNr" "StatusLine" "StatusLineNC"
+         "EndOfBuffer"
+       ];
+      };
+    };
+
     bufferline = {
       enable = true;
       settings = {

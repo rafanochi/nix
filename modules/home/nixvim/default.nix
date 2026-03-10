@@ -14,15 +14,20 @@
     colorschemes = {
       base16 = {
         enable = true;
-        colorscheme = "material-darker";
+        # colorscheme = "tokyo-night-dark";
+        colorscheme = "rose-pine";
+        # colorscheme = "solarized-dark";
         settings = {
-          cmp = false;
-          illuminate = false;
-          indentblankline = false;
+          cmp = true;
+          dapui = true;
+          illuminate = true;
+          indentblankline = true;
           lsp_semantic = false; # important
-          mini_completion = false;
-          telescope = false;
-          telescope_borders = false;
+          mini_completion = true;
+          telescope = true;
+          telescope_borders = true;
+          ts_rainbow = true;
+          notify = true;
         };
       };
     };
@@ -76,6 +81,17 @@
         },
       }
       vim.lsp.enable("hls")
+
+      require('transparent').clear_prefix('BufferLine')
+      require('transparent').clear_prefix('NeoTree')
+
+      -- transparent background
+      -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+      -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+      -- vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none' })
+      -- vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
+      -- vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "NONE" })
+      -- vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "NONE" })
     '';
 
     extraPackages = with pkgs; [ jdt-language-server ueberzugpp ];
