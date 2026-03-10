@@ -69,6 +69,10 @@
         nvidia.acceptLicense = true;
 
         permittedInsecurePackages = [ "olm-3.2.16" ];
+
+        config = {
+          allowUnsupportedSystem = true;
+        };
       };
 
       systems.modules.nixos = with inputs; [
@@ -76,7 +80,7 @@
         nixvim.nixosModules.nixvim
       ];
 
-      homes.modules = with inputs; [ zen-browser.homeModules.default ];
+      homes.modules = with inputs; [ zen-browser.homeModules.default nixvim.homeModules.nixvim];
 
       # Add modules to all homes.
       # homes.modules = with inputs; [ firefox-addons zen-browser ];
@@ -85,4 +89,3 @@
       homes.users."shahruz".specialArgs = { };
     };
 }
-

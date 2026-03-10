@@ -24,7 +24,7 @@
       settings.highlight.disable = [ ]; # empty = enable for all languages
     };
 
-    # Icons 
+    # Icons
     web-devicons.enable = true;
 
     # Auto-tagging
@@ -141,7 +141,7 @@
       enable = true;
       servers = {
 
-        # nix 
+        # nix
         nixd = {
           enable = true;
           autostart = true;
@@ -171,7 +171,6 @@
 
         bashls.enable = true; # Bash
         clangd.enable = true; # C/C++
-        csharp_ls.enable = true; # C#
         yamlls.enable = true; # YAML
         hls = {
           enable = true;

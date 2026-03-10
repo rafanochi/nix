@@ -32,6 +32,7 @@
       "cleanmymac"
       "element"
       "iterm2"
+      "zed"
       # "logitech-options"
       # "minecraft"
       # "nextcloud"

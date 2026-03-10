@@ -10,6 +10,7 @@
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = lib.mkForce "aarch64-darwin";
+      nixpkgs.config.allowUnsupportedSystem = lib.mkForce true;
 
       networking = {
         computerName = "kaori"; # Define your computer name.
