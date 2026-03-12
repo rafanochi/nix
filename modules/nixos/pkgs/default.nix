@@ -7,14 +7,14 @@
     php
     unstable.telegram-desktop
     unstable.nix-sweep
-    discord
+    # discord
     powertop
     vscodium
     qbittorrent
-    upscayl
-    onlyoffice-desktopeditors
+    # upscayl
+    # onlyoffice-desktopeditors
     obs-studio
-    postman
+    # postman
     gimp
     ntfs3g
     udisks2
@@ -27,9 +27,9 @@
     element-web
     fractal
     github-desktop
-    zoom-us
+    # zoom-us
     keepassxc
-    protonvpn-gui
+    # protonvpn-gui
     handbrake
     nixfmt-classic
     nixd

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   fonts.packages = with pkgs; [
-    corefonts
+    # corefonts
     # General Noto fonts
     noto-fonts
     noto-fonts-color-emoji

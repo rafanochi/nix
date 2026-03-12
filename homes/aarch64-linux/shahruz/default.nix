@@ -6,6 +6,8 @@
       # ./zen.nix
     ];
 
+    my-gnome.enable = true;
+
     inputs.home-manager.useGlobalPkgs = true;
     inputs.home-manager.useUserPackages = true;
 

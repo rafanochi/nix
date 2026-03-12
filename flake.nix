@@ -76,6 +76,7 @@
         permittedInsecurePackages = [ "olm-3.2.16" ];
 
         config = {
+          allowUnfree = true;
           allowUnsupportedSystem = true;
         };
       };

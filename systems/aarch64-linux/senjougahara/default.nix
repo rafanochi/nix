@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -58,7 +58,6 @@
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
     variant = "";
   };
 
@@ -112,6 +111,7 @@
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
     helix
+    neofetch
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -131,7 +131,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  networking.firewall.enable = lib.mkDefault false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -4,23 +4,22 @@
 
   programs.dconf.enable = true;
   environment.systemPackages = with pkgs; [
-    gnome.adwaita-icon-theme
     gnomeExtensions.user-themes
-    gnomeextensions.dash-to-dock
-    gnomeextensions.appindicator
-    gnomeextensions.blur-my-shell
-    gnomeextensions.window-title-is-back
-    gnomeextensions.runcat
-    gnomeextensions.soundbar
-    gnomeextensions.in-picture
-    gnomeextensions.media-progress
-    gnomeextensions.tray-icons-reloaded
-    gnomeextensions.color-picker
-    gnomeextensions.space-bar
-    gnomeextensions.date-menu-formatter
-    gnomeextensions.window-is-ready-remover
-    gnomeextensions.tray-icons-reloaded
-    gnomeextensions.status-icons
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.appindicator
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.window-title-is-back
+    gnomeExtensions.runcat
+    gnomeExtensions.soundbar
+    gnomeExtensions.in-picture
+    gnomeExtensions.media-progress
+    gnomeExtensions.tray-icons-reloaded
+    gnomeExtensions.color-picker
+    gnomeExtensions.space-bar
+    gnomeExtensions.date-menu-formatter
+    gnomeExtensions.window-is-ready-remover
+    gnomeExtensions.tray-icons-reloaded
+    gnomeExtensions.status-icons
     gnome-tweaks
     adwaita-qt
     adwaita-icon-theme
@@ -43,7 +42,7 @@
       games.enable = false;
     };
     sysprof.enable = true;
-    udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+    udev.packages = with pkgs; [ gnome-settings-daemon ];
     dbus.packages = with pkgs; [ gnome2.GConf ];
 
     xserver = {
