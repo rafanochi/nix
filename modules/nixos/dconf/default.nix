@@ -1,6 +1,6 @@
-{ lib, ... }:
+{ lib, hmLib, ... }:
 
-with lib.hm.gvariant;
+with lib.my-namespace.hm.gvariant;
 
 {
   dconf.settings = {

@@ -58,6 +58,10 @@
       inherit inputs;
       src = ./.;
 
+      snowfall = {
+
+      namespace = "my-namespace";
+
       # Extra nix flags to set
       outputs-builder = channels: { formatter = channels.nixpkgs.nixfmt-tree; };
 
@@ -93,7 +97,8 @@
 
       # Add modules to a specific home.
       homes.users."shahruz@senjougahara".specialArgs = {
-        lib = inputs.home-manager.lib;
+        hmLib = import inputs.home-manager.lib;
       };
     };
+      };
 }
