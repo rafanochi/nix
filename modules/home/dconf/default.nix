@@ -1,4 +1,4 @@
-{ lib, hmLib, ... }:
+{ lib, ... }:
 
 with lib.my-namespace.hm.gvariant;
 
