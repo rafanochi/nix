@@ -85,12 +85,15 @@
       homes.modules = with inputs; [
         zen-browser.homeModules.default
         nixvim.homeModules.nixvim
+        home-manager.nixosModules.home-manager
       ];
 
       # Add modules to all homes.
       # homes.modules = with inputs; [ firefox-addons zen-browser ];
 
       # Add modules to a specific home.
-      homes.users."shahruz".specialArgs = { };
+      homes.users."shahruz@senjougahara".specialArgs = {
+        lib = inputs.home-manager.lib;
+      };
     };
 }

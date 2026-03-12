@@ -1,10 +1,14 @@
-{ lib, ... }:
+{ inputs, lib, ... }:
 
 {
   config = {
     imports = [
-      ./zen.nix
+      # ./zen.nix
     ];
+
+    inputs.home-manager.useGlobalPkgs = true;
+    inputs.home-manager.useUserPackages = true;
+
     home.stateVersion = "25.11";
     home.username = "shahruz";
 
