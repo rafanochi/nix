@@ -79,6 +79,7 @@
       systems.modules.nixos = with inputs; [
         nix-data.nixosModules.nix-data
         nixvim.nixosModules.nixvim
+        home-manager.nixosModules.home-manager
       ];
 
       homes.modules = with inputs; [
