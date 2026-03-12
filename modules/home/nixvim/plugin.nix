@@ -179,6 +179,21 @@
         };
 
         filesystem = {
+
+          filtered_items = {
+            visible = false;
+            hide_gitignored = true;
+            hide_dotfiles = false;
+            hide_by_name = [
+              ".github"
+              ".gitignore"
+              "package-lock.json"
+              ".changeset"
+              ".prettierrc.json"
+            ];
+            never_show = [ ".git" ];
+          };
+
           window.mappings = {
             "<space>" = false;
             "s" = false;
