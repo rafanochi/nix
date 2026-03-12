@@ -36,13 +36,11 @@
         };
       };
 
-      extensions.packages =
-        with firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
-          ublock-origin
-          keepassxc-browser
-          vimium
-        ];
+      extensions.packages = with firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+        ublock-origin
+        keepassxc-browser
+        vimium
+      ];
     };
   };
 }
-

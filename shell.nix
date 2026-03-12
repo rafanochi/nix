@@ -1,8 +1,12 @@
-{pkgs ? import <nixpkgs> {}, ...}: pkgs.mkShell {
+{
+  pkgs ? import <nixpkgs> { },
+  ...
+}:
+pkgs.mkShell {
   packages = with pkgs; [
-     nixd
-     statix
-     deadnix
-     nixfmt
+    nixd
+    statix
+    deadnix
+    nixfmt
   ];
 }

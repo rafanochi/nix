@@ -1,7 +1,15 @@
-{ pkgs, zen-browser, lib, unstable-pkgs, ... }:
+{
+  pkgs,
+  zen-browser,
+  lib,
+  unstable-pkgs,
+  ...
+}:
 
-let configModules = import ./config;
-in {
+let
+  configModules = import ./config;
+in
+{
   imports = [
     zen-browser.homeModules.default
     configModules.zsh

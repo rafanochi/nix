@@ -1,4 +1,9 @@
-{ pkgs, username, hostname, ... }:
+{
+  pkgs,
+  username,
+  hostname,
+  ...
+}:
 {
   programs.vscode = {
     enable = true;
@@ -36,7 +41,8 @@
         "editor.guides.indentation" = false;
 
         # --- Haskell-language-server ---
-        "haskell.serverExecutablePath" = "${pkgs.haskell-language-server}/bin/haskell-language-server-wrapper";
+        "haskell.serverExecutablePath" =
+          "${pkgs.haskell-language-server}/bin/haskell-language-server-wrapper";
         "haskell.manageHLS" = "PATH";
 
         # --- Nix LSP ---

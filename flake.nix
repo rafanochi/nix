@@ -3,7 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-        # Nix-darwin for macOS systems management
+    # Nix-darwin for macOS systems management
     darwin = {
       url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,7 +52,8 @@
   };
 
   # We will handle this in the next section.
-  outputs = inputs:
+  outputs =
+    inputs:
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;
@@ -80,7 +81,10 @@
         nixvim.nixosModules.nixvim
       ];
 
-      homes.modules = with inputs; [ zen-browser.homeModules.default nixvim.homeModules.nixvim];
+      homes.modules = with inputs; [
+        zen-browser.homeModules.default
+        nixvim.homeModules.nixvim
+      ];
 
       # Add modules to all homes.
       # homes.modules = with inputs; [ firefox-addons zen-browser ];

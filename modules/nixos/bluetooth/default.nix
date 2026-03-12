@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  # Enabling Bluetooth Support 
+  # Enabling Bluetooth Support
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;

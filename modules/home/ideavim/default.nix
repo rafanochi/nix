@@ -14,7 +14,7 @@
       :map sv <Action>(SplitVertically)
       :map ss <Action>(SplitHorizontally)
       :map sc <Action>(Unsplit)
-      
+
       :map <C-t> <Action>(ActivateProjectToolWindow)
       :map <C-=> <Action>(ZoomInIdeAction)
       :map <C--> <Action>(ZoomOutIdeAction)

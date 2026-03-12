@@ -1,7 +1,11 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./option.nix ./plugin.nix ./map.nix ];
+  imports = [
+    ./option.nix
+    ./plugin.nix
+    ./map.nix
+  ];
 
   programs.nixvim = {
     enable = true;
@@ -52,8 +56,7 @@
     # };
 
     plugins = {
-      lsp.servers.dockerls.package =
-        pkgs.nodePackages.dockerfile-language-server-nodejs;
+      lsp.servers.dockerls.package = pkgs.nodePackages.dockerfile-language-server-nodejs;
     };
 
     diagnostic.settings = {
@@ -78,6 +81,9 @@
       vim.lsp.enable("hls")
     '';
 
-    extraPackages = with pkgs; [ jdt-language-server ueberzugpp ];
+    extraPackages = with pkgs; [
+      jdt-language-server
+      ueberzugpp
+    ];
   };
 }

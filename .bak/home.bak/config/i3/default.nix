@@ -6,18 +6,17 @@ let
   # Scripts
   scriptDir = ./Scripts;
   scriptFiles = builtins.attrNames (builtins.readDir scriptDir);
-  shFiles =
-    builtins.filter (f: builtins.match ".*\\.sh$" f != null) scriptFiles;
+  shFiles = builtins.filter (f: builtins.match ".*\\.sh$" f != null) scriptFiles;
 
-  scriptAttrs = builtins.listToAttrs (map
-    (fileName: {
+  scriptAttrs = builtins.listToAttrs (
+    map (fileName: {
       name = ".config/i3/Scripts/${fileName}";
       value = {
         source = "${scriptDir}/${fileName}";
         executable = true;
       };
-    })
-    shFiles);
+    }) shFiles
+  );
 
   # Wallpapers as a home.file entry (just the directory)
   wallpaperAttrs = {
@@ -40,7 +39,10 @@ let
 in
 {
 
-  imports = [ ./rofi.nix ./i3status.nix ];
+  imports = [
+    ./rofi.nix
+    ./i3status.nix
+  ];
 
   xsession.windowManager.i3 = {
     enable = true;
@@ -49,7 +51,7 @@ in
       fonts = {
         names = [ "FireCode Nerd Font" ];
         size = 14.0;
-      }; 
+      };
 
       terminal = "alacritty";
 
@@ -139,25 +141,21 @@ in
         "Mod1+button4" = "workspace prev";
 
         # mouse move container
-        "Mod1+Shift+button5" =
-          "exec --no-startup-id bash $HOME/.config/i3/Scripts/move_container.sh next";
-        "Mod1+Shift+button4" =
-          "exec --no-startup-id bash $HOME/.config/i3/Scripts/move_container.sh prev";
+        "Mod1+Shift+button5" = "exec --no-startup-id bash $HOME/.config/i3/Scripts/move_container.sh next";
+        "Mod1+Shift+button4" = "exec --no-startup-id bash $HOME/.config/i3/Scripts/move_container.sh prev";
 
         # reload / restart
         "Mod1+Shift+c" = "reload";
         "Mod1+Shift+r" = "restart";
 
         # exit
-        "Mod1+Shift+e" =
-          ''exec "i3-nagbar -t warning -m 'Exit i3?' -B 'Yes' 'i3-msg exit'"'';
+        "Mod1+Shift+e" = ''exec "i3-nagbar -t warning -m 'Exit i3?' -B 'Yes' 'i3-msg exit'"'';
 
         # resize mode
         "Mod1+r" = ''mode "resize"'';
 
         # wallpaper script
-        "Mod1+Shift+w" =
-          "exec --no-startup-id bash $HOME/.config/i3/Scripts/wallpaper.sh";
+        "Mod1+Shift+w" = "exec --no-startup-id bash $HOME/.config/i3/Scripts/wallpaper.sh";
 
         "Mod1+d" = "exec --no-startup-id rofi -show drun";
       };
@@ -180,13 +178,19 @@ in
         };
       };
 
-      gaps = { inner = 5; };
+      gaps = {
+        inner = 5;
+      };
 
-      bars = [{
-        statusCommand = "i3status";
+      bars = [
+        {
+          statusCommand = "i3status";
 
-        colors = { background = "#340032"; };
-      }];
+          colors = {
+            background = "#340032";
+          };
+        }
+      ];
     };
 
     # Autostart
@@ -237,4 +241,3 @@ in
 
   home.file = homeFiles;
 }
-

@@ -1,9 +1,12 @@
-{ config, ... }: {
+{ config, ... }:
+{
   programs.rofi = {
     enable = true;
     theme =
-      let inherit (config.lib.formats.rasi) mkLiteral;
-      in {
+      let
+        inherit (config.lib.formats.rasi) mkLiteral;
+      in
+      {
         "*" = {
           bg0 = mkLiteral "#212121F2";
           bg1 = mkLiteral "#2A2A2A";

@@ -1,4 +1,11 @@
-{ pkgs, unstable-pkgs, lib, inputs, config, ... }:
+{
+  pkgs,
+  unstable-pkgs,
+  lib,
+  inputs,
+  config,
+  ...
+}:
 
 {
   # Bootloader.
@@ -20,15 +27,20 @@
 
   networking.hostName = "tya"; # Define your hostname.
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.nvidia.acceptLicense = true;
   nixpkgs.config.permittedInsecurePackages = [ "olm-3.2.16" ];
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "google-chrome" ];
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "google-chrome" ];
 
   networking.networkmanager.enable = true;
-  networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
+  networking.nameservers = [
+    "1.1.1.1"
+    "8.8.8.8"
+  ];
   networking.resolvconf.enable = false;
   environment.etc."resolv.conf".text = ''
     nameserver 1.1.1.1
@@ -93,7 +105,7 @@
     pulse.enable = true;
   };
 
-  # Enabling Bluetooth Support 
+  # Enabling Bluetooth Support
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -123,11 +135,13 @@
   users.users.shahruz = {
     isNormalUser = true;
     description = "Shahruz Norimmatov";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs;
-      [
-        #  thunderbird
-      ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    packages = with pkgs; [
+      #  thunderbird
+    ];
   };
 
   programs.zsh.enable = true;
@@ -137,7 +151,13 @@
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 80 443 8888 5500 1003 ];
+    allowedTCPPorts = [
+      80
+      443
+      8888
+      5500
+      1003
+    ];
   };
 
   services.udev.packages = [ pkgs.gnome-settings-daemon ];
@@ -146,7 +166,10 @@
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_14;
-    ensureDatabases = [ "gardening" "postgres" ];
+    ensureDatabases = [
+      "gardening"
+      "postgres"
+    ];
     enableTCPIP = true;
     authentication = pkgs.lib.mkOverride 10 ''
       local all      all                    trust
@@ -193,10 +216,12 @@
     enable = true;
     enablePHP = true;
     virtualHosts.default = {
-      listen = [{
-        ip = "*";
-        port = 80;
-      }];
+      listen = [
+        {
+          ip = "*";
+          port = 80;
+        }
+      ];
       documentRoot = "/var/www/page";
     };
   };
@@ -206,29 +231,35 @@
     package = pkgs.mariadb;
   };
 
-  systemd.tmpfiles.rules =
-    [ "d /var/www/page" "f /var/www/page/index.php - - - - <?php phpinfo();" ];
+  systemd.tmpfiles.rules = [
+    "d /var/www/page"
+    "f /var/www/page/index.php - - - - <?php phpinfo();"
+  ];
 
-  programs.spicetify = let
-    spicePkgs =
-      inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-  in {
-    enable = true;
+  programs.spicetify =
+    let
+      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+    in
+    {
+      enable = true;
 
-    enabledExtensions = with spicePkgs.extensions; [
-      adblock
-      hidePodcasts
-      shuffle # shuffle+ (special characters are sanitized out of extension names)
-    ];
-    enabledCustomApps = with spicePkgs.apps; [
-      newReleases
-      ncsVisualizer
-      marketplace
-    ];
-    enabledSnippets = with spicePkgs.snippets; [ rotatingCoverart pointer ];
+      enabledExtensions = with spicePkgs.extensions; [
+        adblock
+        hidePodcasts
+        shuffle # shuffle+ (special characters are sanitized out of extension names)
+      ];
+      enabledCustomApps = with spicePkgs.apps; [
+        newReleases
+        ncsVisualizer
+        marketplace
+      ];
+      enabledSnippets = with spicePkgs.snippets; [
+        rotatingCoverart
+        pointer
+      ];
 
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
-  };
+      theme = spicePkgs.themes.catppuccin;
+      colorScheme = "mocha";
+    };
 
 }

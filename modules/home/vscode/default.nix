@@ -1,4 +1,9 @@
-{ pkgs, config, host, ... }:
+{
+  pkgs,
+  config,
+  host,
+  ...
+}:
 {
   programs.vscode = {
     enable = true;
@@ -36,7 +41,8 @@
         "editor.guides.indentation" = false;
 
         # --- Haskell-language-server ---
-        "haskell.serverExecutablePath" = "${pkgs.haskell-language-server}/bin/haskell-language-server-wrapper";
+        "haskell.serverExecutablePath" =
+          "${pkgs.haskell-language-server}/bin/haskell-language-server-wrapper";
         "haskell.manageHLS" = "PATH";
 
         # --- Nix LSP ---
@@ -60,7 +66,8 @@
               };
               # If you use standalone Home Manager:
               "home-manager" = {
-                "expr" = "(builtins.getFlake (builtins.toString ./.)).homeConfigurations.${config.home.username}.options";
+                "expr" =
+                  "(builtins.getFlake (builtins.toString ./.)).homeConfigurations.${config.home.username}.options";
               };
             };
             "diagnostic" = {

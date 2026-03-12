@@ -28,7 +28,10 @@
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_14;
-    ensureDatabases = [ "gardening" "postgres" ];
+    ensureDatabases = [
+      "gardening"
+      "postgres"
+    ];
     enableTCPIP = true;
     authentication = pkgs.lib.mkOverride 10 ''
       local all      all                    trust
@@ -75,10 +78,12 @@
     enable = true;
     enablePHP = true;
     virtualHosts.default = {
-      listen = [{
-        ip = "*";
-        port = 80;
-      }];
+      listen = [
+        {
+          ip = "*";
+          port = 80;
+        }
+      ];
       documentRoot = "/var/www/page";
     };
   };
@@ -88,8 +93,10 @@
     package = pkgs.mariadb;
   };
 
-  systemd.tmpfiles.rules =
-    [ "d /var/www/page" "f /var/www/page/index.php - - - - <?php phpinfo();" ];
+  systemd.tmpfiles.rules = [
+    "d /var/www/page"
+    "f /var/www/page/index.php - - - - <?php phpinfo();"
+  ];
 
   system.activationScripts.nixvimSymlinks.text = ''
     mkdir -p /usr/local/bin

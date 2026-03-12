@@ -1,8 +1,7 @@
 { pkgs, ... }:
 
 {
-  programs.ssh.askPassword =
-    pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
+  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
   environment.systemPackages = with pkgs; [
     # KDE
     kdePackages.kcalc # Calculator

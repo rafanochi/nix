@@ -1,11 +1,18 @@
-{ config, lib, nixpkgs, ... }:
+{
+  config,
+  lib,
+  nixpkgs,
+  ...
+}:
 
 {
   boot.kernelParams = [ "module_blacklist=i915" ];
 
   services.xserver.videoDrivers = [ "nvidia" ];
   # Enable OpenGL
-  hardware.graphics = { enable = true; };
+  hardware.graphics = {
+    enable = true;
+  };
 
   hardware.nvidia = {
     open = false;
@@ -30,4 +37,3 @@
   #   nvidiaBusId = "PCI:01:00:0";
   # };
 }
-

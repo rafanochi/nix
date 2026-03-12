@@ -13,7 +13,10 @@
         size = 14.0;
       };
       window = {
-        padding = { x = 1; y = 1; };
+        padding = {
+          x = 1;
+          y = 1;
+        };
       };
     };
   };

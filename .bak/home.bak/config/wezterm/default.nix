@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   programs.wezterm = {
     enable = true;
     enableZshIntegration = true;
@@ -76,7 +77,7 @@
           "#ffcb6b"
           "#c792ea"
           "#82aaff"
-          # "#89ddff" 
+          # "#89ddff"
           "#DC8ADD" # teal
           "#ffffff"
         ];

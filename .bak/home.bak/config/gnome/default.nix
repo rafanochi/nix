@@ -1,9 +1,10 @@
 { pkgs, ... }:
 
 {
-  imports = [ 
-    ./dconf.nix 
-    ./gsconnect.nix ];
+  imports = [
+    ./dconf.nix
+    ./gsconnect.nix
+  ];
 
   # qt.enable = true;
   # qt.platformTheme = "gnome";

@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   programs.zed-editor = {
     enable = true;
     userSettings = {
@@ -14,7 +15,9 @@
 
       rust-analyzer = {
         procMacro.enable = true;
-        cargo = { targetDir = "target/zed"; };
+        cargo = {
+          targetDir = "target/zed";
+        };
       };
     };
   };

@@ -52,7 +52,6 @@
     #   };
     # };
 
-
     fonts = {
       general = {
         family = "SF Pro Text";

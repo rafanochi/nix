@@ -46,7 +46,6 @@
     udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
     dbus.packages = with pkgs; [ gnome2.GConf ];
 
-
     xserver = {
       enable = true;
       xkb.layout = "us,ru";

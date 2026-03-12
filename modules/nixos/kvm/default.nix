@@ -1,9 +1,12 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 
 {
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = [ "shahruz" ];
-  users.users.shahruz.extraGroups = [ "libvirtd" "kvm" ];
+  users.users.shahruz.extraGroups = [
+    "libvirtd"
+    "kvm"
+  ];
   virtualisation.spiceUSBRedirection.enable = true;
 
   virtualisation.libvirtd = {
@@ -36,4 +39,3 @@
   # networking.firewall.trustedInterfaces = [ "virbr0" ];
 
 }
-

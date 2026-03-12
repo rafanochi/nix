@@ -14,10 +14,14 @@
     ];
 
     languages = {
-      language = [{
-        name = "nix";
-        formatter = { command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt"; };
-      }];
+      language = [
+        {
+          name = "nix";
+          formatter = {
+            command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
+          };
+        }
+      ];
     };
 
     extraPackages = with pkgs; [
@@ -45,6 +49,5 @@
       yaml-language-server
     ];
   };
-
 
 }

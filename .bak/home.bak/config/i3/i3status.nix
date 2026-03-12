@@ -25,32 +25,44 @@
 
       "disk /" = {
         position = 2;
-        settings = { format = "ROOT %avail "; };
+        settings = {
+          format = "ROOT %avail ";
+        };
       };
 
       "disk /home" = {
         position = 3;
-        settings = { format = "HOME %avail "; };
+        settings = {
+          format = "HOME %avail ";
+        };
       };
 
       "cpu_usage" = {
         position = 4;
-        settings = { format = "CPU %usage "; };
+        settings = {
+          format = "CPU %usage ";
+        };
       };
 
       "memory" = {
         position = 5;
-        settings = { format = "Mem %used / %total "; };
+        settings = {
+          format = "Mem %used / %total ";
+        };
       };
 
       "load" = {
         position = 6;
-        settings = { format = "Load %5min "; };
+        settings = {
+          format = "Load %5min ";
+        };
       };
 
       "tztime local" = {
         position = 7;
-        settings = { format = " %Y-%m-%d %H:%M:%S "; };
+        settings = {
+          format = " %Y-%m-%d %H:%M:%S ";
+        };
       };
 
       "battery 0" = {

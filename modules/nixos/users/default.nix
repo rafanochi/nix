@@ -1,10 +1,10 @@
 { pkgs, ... }:
 
 let
-  hashedPassword =
-    "$6$P0K5RxUtyZkdmqpp$JP9.Jt2lSx7WwxQ6ePqtUWcD0PydFiBqjCUejSFSwPd6fuKSgJvatWBcVKOP4v0nGySW1BMST87P3H1occQek/";
+  hashedPassword = "$6$P0K5RxUtyZkdmqpp$JP9.Jt2lSx7WwxQ6ePqtUWcD0PydFiBqjCUejSFSwPd6fuKSgJvatWBcVKOP4v0nGySW1BMST87P3H1occQek/";
 
-in {
+in
+{
   users.users = {
     shahruz = {
       inherit hashedPassword;
@@ -13,7 +13,10 @@ in {
       description = "Shahruz";
       shell = pkgs.zsh;
 
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
     };
 
     u2310188 = {
@@ -23,7 +26,10 @@ in {
       description = "IUT";
       shell = pkgs.zsh;
 
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
     };
   };
 }

@@ -1,4 +1,5 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+{
   # Bootloader.
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -18,13 +19,13 @@
           GRUB_DISABLE_OS_PROBER=false
         '';
         theme = "${
-            (pkgs.fetchFromGitHub {
-              owner = "xinux-org";
-              repo = "bootloader-theme";
-              tag = "v1.0.3";
-              hash = "sha256-ipaiJiQ3r2B3si1pFKdp/qykcpaGV+EqXRwl6UkCohs=";
-            })
-          }/xinux";
+          (pkgs.fetchFromGitHub {
+            owner = "xinux-org";
+            repo = "bootloader-theme";
+            tag = "v1.0.3";
+            hash = "sha256-ipaiJiQ3r2B3si1pFKdp/qykcpaGV+EqXRwl6UkCohs=";
+          })
+        }/xinux";
       };
     };
     plymouth = {

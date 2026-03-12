@@ -1,4 +1,11 @@
-{ disks ? [ "/dev/nvme0n1" "/dev/sda" ], ... }: {
+{
+  disks ? [
+    "/dev/nvme0n1"
+    "/dev/sda"
+  ],
+  ...
+}:
+{
   disko.devices = {
     disk = {
       main = {
@@ -19,7 +26,9 @@
             };
             SWAP = {
               size = "32G";
-              content = { type = "swap"; };
+              content = {
+                type = "swap";
+              };
             };
             ROOT = {
               size = "100%";

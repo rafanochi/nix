@@ -17,7 +17,7 @@
         MinimizeOnStartup = true;
         MinimizeOnClose = true;
         CheckForUpdates = false;
-        TrayIconAppearance="monochrome-light";
+        TrayIconAppearance = "monochrome-light";
       };
     };
   };
