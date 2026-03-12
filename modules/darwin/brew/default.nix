@@ -29,11 +29,11 @@
     casks = lib.optionals config.homebrew.enable [
       # "anki"
       # "balenaetcher"
-      "cleanmymac"
       "element"
       "iterm2"
       "zed"
       "gimp"
+      "vlc"
       # "logitech-options"
       # "minecraft"
       # "nextcloud"
