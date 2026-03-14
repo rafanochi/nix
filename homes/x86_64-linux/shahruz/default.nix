@@ -21,7 +21,7 @@
       done
     '';
 
-    # home.file.".zen/*/search.json.mozlz4".force = true;
+    # home.file.".config/zen/*/search.json.mozlz4".force = true;
 
     # Let's enable home-manager
     programs.home-manager.enable = true;
