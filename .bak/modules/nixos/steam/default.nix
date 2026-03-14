@@ -2,11 +2,11 @@
 
 {
 
-
   hardware = {
     graphics = {
-        enable32Bit = lib.mkForce false;
-    };};
+      enable32Bit = lib.mkForce false;
+    };
+  };
 
   programs.steam = {
     enable = false;

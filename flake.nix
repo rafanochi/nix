@@ -57,11 +57,6 @@
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;
-
-      snowfall = {
-
-      namespace = "my-namespace";
-
       # Extra nix flags to set
       outputs-builder = channels: { formatter = channels.nixpkgs.nixfmt-tree; };
 
@@ -74,11 +69,6 @@
         nvidia.acceptLicense = true;
 
         permittedInsecurePackages = [ "olm-3.2.16" ];
-
-        config = {
-          allowUnfree = true;
-          allowUnsupportedSystem = true;
-        };
       };
 
       systems.modules.nixos = with inputs; [
@@ -90,7 +80,7 @@
       homes.modules = with inputs; [
         zen-browser.homeModules.default
         nixvim.homeModules.nixvim
-        home-manager.nixosModules.home-manager
+        # home-manager.nixosModules.home-manager
       ];
 
       # Add modules to all homes.
@@ -100,6 +90,9 @@
       homes.users."shahruz@senjougahara".specialArgs = {
         hmLib = import inputs.home-manager.lib;
       };
-    };
+
+      snowfall = {
+        namespace = "my-namespace";
       };
+    };
 }

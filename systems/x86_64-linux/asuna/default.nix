@@ -39,8 +39,6 @@
     # initrd.verbose = false;
   };
 
-
-
   time.timeZone = "Asia/Tashkent";
 
   # i18n = {
