@@ -1,31 +1,18 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   services.xserver.videoDrivers = [ "nvidia" ];
   # Enable OpenGL
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      mesa
-      libvdpau
-      libva-vdpau-driver
-      libva
-      vulkan-loader
-      vulkan-validation-layers
-    ];
-  };
-
-  hardware.nvidia = {
-    open = true;
-    modesetting.enable = true;
-    nvidiaSettings = true;
-    nvidiaPersistenced = false;
-    powerManagement.enable = true;
-    powerManagement.finegrained = false;
-    dynamicBoost.enable = false;
-    # package = config.boot.kernelPackages.nvidiaPackages.stable;
-    # package = config.boot.kernelPackages.nvidiaPackages.stable; # Older versions
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
+   hardware = {
+    # GPU (Nvidia)
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = true;
+      powerManagement.finegrained = false;
+      open = true;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
+    };
   };
 
   # hardware.nvidia.prime = {

@@ -1,10 +1,11 @@
 { lib, ... }:
 
 {
+     imports = [
+        ./zen.nix
+     ];
   config = {
-    imports = [
-      ./zen.nix
-    ];
+
     home.stateVersion = "25.11";
     home.username = "shahruz";
 
