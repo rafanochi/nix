@@ -4,11 +4,14 @@
   imports = [
     ./hardware-configuration.nix
     ./nvidia
-    # ./steam
+    ./steam
   ];
+  services = {
+    cloudflare-warp = { enable = true; };
+  };
 
-  systemd = {
-    services = {
+    systemd = {
+      services = {
       # Uncertain if this is still required or not.
       systemd-suspend.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
 
@@ -20,13 +23,11 @@
           "nvidia-suspend.service"
           "nvidia-hibernate.service"
         ];
-        wantedBy = [
-          "systemd-suspend.service"
-          "systemd-hibernate.service"
-        ];
+        wantedBy = [ "systemd-suspend.service" "systemd-hibernate.service" ];
         serviceConfig = {
           Type = "oneshot";
-          ExecStart = ''${pkgs.procps}/bin/pkill -f -STOP ${pkgs.gnome-shell}/bin/gnome-shell'';
+          ExecStart =
+            "${pkgs.procps}/bin/pkill -f -STOP ${pkgs.gnome-shell}/bin/gnome-shell";
         };
       };
       "gnome-resume" = {
@@ -36,13 +37,11 @@
           "systemd-hibernate.service"
           "nvidia-resume.service"
         ];
-        wantedBy = [
-          "systemd-suspend.service"
-          "systemd-hibernate.service"
-        ];
+        wantedBy = [ "systemd-suspend.service" "systemd-hibernate.service" ];
         serviceConfig = {
           Type = "oneshot";
-          ExecStart = ''${pkgs.procps}/bin/pkill -f -CONT ${pkgs.gnome-shell}/bin/gnome-shell'';
+          ExecStart =
+            "${pkgs.procps}/bin/pkill -f -CONT ${pkgs.gnome-shell}/bin/gnome-shell";
         };
       };
     };
@@ -67,13 +66,13 @@
           GRUB_DISABLE_OS_PROBER=false
         '';
         theme = "${
-          (pkgs.fetchFromGitHub {
-            owner = "xinux-org";
-            repo = "bootloader-theme";
-            tag = "v1.0.3";
-            hash = "sha256-ipaiJiQ3r2B3si1pFKdp/qykcpaGV+EqXRwl6UkCohs=";
-          })
-        }/xinux";
+            (pkgs.fetchFromGitHub {
+              owner = "xinux-org";
+              repo = "bootloader-theme";
+              tag = "v1.0.3";
+              hash = "sha256-ipaiJiQ3r2B3si1pFKdp/qykcpaGV+EqXRwl6UkCohs=";
+            })
+          }/xinux";
       };
     };
     # consoleLogLevel = 3;
@@ -104,10 +103,7 @@
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_14;
-    ensureDatabases = [
-      "gardening"
-      "postgres"
-    ];
+    ensureDatabases = [ "gardening" "postgres" ];
     enableTCPIP = true;
     authentication = pkgs.lib.mkOverride 10 ''
       local all      all                    trust
@@ -154,12 +150,10 @@
     enable = true;
     enablePHP = true;
     virtualHosts.default = {
-      listen = [
-        {
-          ip = "*";
-          port = 80;
-        }
-      ];
+      listen = [{
+        ip = "*";
+        port = 80;
+      }];
       documentRoot = "/var/www/page";
     };
   };
@@ -169,10 +163,8 @@
     package = pkgs.mariadb;
   };
 
-  systemd.tmpfiles.rules = [
-    "d /var/www/page"
-    "f /var/www/page/index.php - - - - <?php phpinfo();"
-  ];
+  systemd.tmpfiles.rules =
+    [ "d /var/www/page" "f /var/www/page/index.php - - - - <?php phpinfo();" ];
 
   system.activationScripts.nixvimSymlinks.text = ''
     mkdir -p /usr/local/bin

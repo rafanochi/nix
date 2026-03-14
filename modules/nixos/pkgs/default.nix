@@ -45,5 +45,9 @@
     xclip
     nixpkgs-fmt
     libsForQt5.qtcurve
+
+    cloudflare-warp
+
+    emacs
   ];
 }
