@@ -1,8 +1,12 @@
-{pkgs, config, lib, ...} :{
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+{
 
-
-
-hardware = {
+  hardware = {
     graphics.enable = true;
     graphics.enable32Bit = true;
     graphics.extraPackages = with pkgs; [
@@ -31,5 +35,5 @@ hardware = {
         persistencedSha256 = "sha256-bs3bUi8LgBu05uTzpn2ugcNYgR5rzWEPaTlgm0TIpHY=";
       };
     };
-  }; 
+  };
 }

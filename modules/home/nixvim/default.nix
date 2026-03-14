@@ -1,7 +1,16 @@
-{ pkgs, lib, system, ... }:
+{
+  pkgs,
+  lib,
+  system,
+  ...
+}:
 
 {
-  imports = [ ./option.nix ./plugin.nix ./map.nix ];
+  imports = [
+    ./option.nix
+    ./plugin.nix
+    ./map.nix
+  ];
 
   programs.nixvim = {
     enable = true;
@@ -29,11 +38,11 @@
           notify = true;
         };
 
-      } 
+      }
 
       // lib.optionalAttrs (lib.snowfall.system.is-linux system) {
         colorscheme = "material-darker";
-      } 
+      }
 
       // lib.optionalAttrs (lib.snowfall.system.is-darwin system) {
         colorscheme = "rose-pine";
@@ -65,8 +74,7 @@
     # };
 
     plugins = {
-      lsp.servers.dockerls.package =
-        pkgs.nodePackages.dockerfile-language-server-nodejs;
+      lsp.servers.dockerls.package = pkgs.nodePackages.dockerfile-language-server-nodejs;
     };
 
     diagnostic.settings = {
@@ -103,6 +111,9 @@
       -- vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "NONE" })
     '';
 
-    extraPackages = with pkgs; [ jdt-language-server ueberzugpp ];
+    extraPackages = with pkgs; [
+      jdt-language-server
+      ueberzugpp
+    ];
   };
 }

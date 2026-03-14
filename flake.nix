@@ -1,9 +1,12 @@
 {
   nixConfig = {
-    experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+      "pipe-operators"
+    ];
     extra-substituters = [ "https://cache.xinux.uz/" ];
-    extra-trusted-public-keys =
-      [ "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=" ];
+    extra-trusted-public-keys = [ "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=" ];
   };
 
   inputs = {
@@ -59,7 +62,8 @@
   };
 
   # We will handle this in the next section.
-  outputs = inputs:
+  outputs =
+    inputs:
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;
@@ -97,6 +101,8 @@
         hmLib = import inputs.home-manager.lib;
       };
 
-      snowfall = { namespace = "my-namespace"; };
+      snowfall = {
+        namespace = "my-namespace";
+      };
     };
 }

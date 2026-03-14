@@ -1,9 +1,9 @@
 { lib, ... }:
 
 {
-     imports = [
-        ./zen.nix
-     ];
+  imports = [
+    ./zen.nix
+  ];
   config = {
 
     home.stateVersion = "25.11";

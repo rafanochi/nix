@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   services.xserver.videoDrivers = [ "nvidia" ];
   # Enable OpenGL
-   hardware = {
+  hardware = {
     # GPU (Nvidia)
     nvidia = {
       modesetting.enable = true;
