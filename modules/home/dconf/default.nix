@@ -763,6 +763,7 @@ with lib.my-namespace.hm.gvariant;
         "org.wezfurlong.wezterm.desktop"
         "org.telegram.desktop.desktop"
         "zen-beta.desktop"
+        "org.gnome.SystemMonitor.desktop"
       ];
       last-selected-power-profile = "performance";
       welcome-dialog-last-shown-version = "46.2";
