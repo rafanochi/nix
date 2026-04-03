@@ -52,5 +52,9 @@
 
     droidcam
     obs-studio-plugins.droidcam-obs
+    android-tools
+
+    webkitgtk_4_1
+    openscad
   ];
 }
