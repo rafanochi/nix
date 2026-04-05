@@ -31,7 +31,7 @@
       # "balenaetcher"
       "element"
       "iterm2"
-      "zed"
+      # "zed"
       "gimp"
       "vlc"
       # "logitech-options"
@@ -44,6 +44,7 @@
       "sf-symbols"
       "font-sf-mono-nerd-font-ligaturized"
       "zen"
+      "karabiner-elements"
       # "zulip"
     ];
   };

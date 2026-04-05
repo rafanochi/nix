@@ -1,7 +1,7 @@
 { ... }:
 {
   programs.zed-editor = {
-    enable = true;
+    enable = false;
     userSettings = {
       disable_ai = true;
       vim_mode = true;

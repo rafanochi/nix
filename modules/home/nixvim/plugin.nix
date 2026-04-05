@@ -8,8 +8,11 @@
       autoLoad = true;
       enable = true;
       settings = {
-        extra_groups = [
+        exclude_groups = [
           "NormalFloat"
+          "FloatBorder"
+        ];
+        extra_groups = [
           "NvimTreeNormal"
           "SignColumn"
           "Normal"
@@ -289,15 +292,10 @@
 
         # Rust
         rust_analyzer = {
+          autostart = true;
           enable = true;
           installRustc = true;
           installCargo = true;
-
-          settings = {
-            procMacro = {
-              enable = true;
-            };
-          };
         };
       };
     };

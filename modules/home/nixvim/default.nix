@@ -45,7 +45,7 @@
       }
 
       // lib.optionalAttrs (lib.snowfall.system.is-darwin system) {
-        colorscheme = "rose-pine";
+        colorscheme = "rose-pine-moon";
       };
     };
 
