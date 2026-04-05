@@ -37,6 +37,7 @@ in
       gnomeExtensions.window-is-ready-remover
       gnomeExtensions.tray-icons-reloaded
       gnomeExtensions.status-icons
+      gnomeExtensions.gnome-window-rules
       gnome-tweaks
       adwaita-qt
       adwaita-icon-theme

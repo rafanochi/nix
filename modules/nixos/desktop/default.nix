@@ -20,6 +20,9 @@
     gnomeExtensions.window-is-ready-remover
     gnomeExtensions.tray-icons-reloaded
     gnomeExtensions.status-icons
+    gnomeExtensions.put-windows
+    # gnomeExtensions.gnome-window-rules
+    gnomeExtensions.vicinae
     gnome-tweaks
     adwaita-qt
     adwaita-icon-theme
@@ -27,9 +30,7 @@
     refine
     dconf2nix
   ];
-  environment.variables = {
-    GSK_RENDERER = "ngl";
-  };
+  environment.variables = { GSK_RENDERER = "ngl"; };
 
   services = {
     displayManager.gdm.enable = true;

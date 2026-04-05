@@ -7,7 +7,7 @@
     php
     unstable.telegram-desktop
     unstable.nix-sweep
-    # discord
+    discord
     powertop
     vscodium
     qbittorrent
@@ -49,5 +49,12 @@
     cloudflare-warp
 
     emacs
+
+    droidcam
+    obs-studio-plugins.droidcam-obs
+    android-tools
+
+    webkitgtk_4_1
+    openscad
   ];
 }

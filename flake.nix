@@ -1,17 +1,18 @@
 {
   nixConfig = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-      "pipe-operators"
-    ];
+    experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
     extra-substituters = [ "https://cache.xinux.uz/" ];
-    extra-trusted-public-keys = [ "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=" ];
+    extra-trusted-public-keys =
+      [ "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=" ];
   };
 
   inputs = {
-    nixpkgs.url = "github:xinux-org/nixpkgs/nixos-25.11";
-    unstable.url = "github:xinux-org/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:xinux-org/nixpkgs/nixos-25.11";
+    # unstable.url = "github:xinux-org/nixpkgs/nixos-unstable";
+    nixpkgs.url =
+      "git+https://git.oss.uzinfocom.uz/xinux/nixpkgs?ref=nixos-25.11&shallow=1";
+    unstable.url =
+      "git+https://git.oss.uzinfocom.uz/xinux/nixpkgs?ref=nixos-unstable&shallow=1";
 
     # Nix-darwin for macOS systems management
     darwin = {
@@ -24,6 +25,17 @@
     snowfall-lib = {
       url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Xinux library
+    xinux-lib = {
+      url = "git+https://git.oss.uzinfocom.uz/xinux/lib?ref=main&shallow=1";
+      inputs.unstable.follows = "nixpkgs";
+    };
+
+    xinux-modules = {
+      url = "git+https://git.oss.uzinfocom.uz/xinux/modules?ref=main&shallow=1";
+      inputs.unstable.follows = "nixpkgs";
     };
 
     home-manager = {
@@ -51,7 +63,7 @@
 
     nix-data = {
       url = "github:xinux-org/nix-data";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.unstable.follows = "nixpkgs";
     };
 
     mac-style-plymouth = {
@@ -62,8 +74,7 @@
   };
 
   # We will handle this in the next section.
-  outputs =
-    inputs:
+  outputs = inputs:
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;
@@ -85,6 +96,11 @@
         nix-data.nixosModules.nix-data
         nixvim.nixosModules.nixvim
         home-manager.nixosModules.home-manager
+
+        xinux-modules.nixosModules.branding
+        xinux-modules.nixosModules.kernel
+        xinux-modules.nixosModules.xinux
+        xinux-modules.nixosModules.gnome
       ];
 
       homes.modules = with inputs; [
@@ -101,8 +117,6 @@
         hmLib = import inputs.home-manager.lib;
       };
 
-      snowfall = {
-        namespace = "my-namespace";
-      };
+      snowfall = { namespace = "my-namespace"; };
     };
 }
