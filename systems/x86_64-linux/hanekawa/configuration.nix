@@ -2,32 +2,22 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ config, pkgs, ... }:
 
 {
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-  ];
-
-  # Setup qemu so we can run x86_64 binaries
-  boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+    ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.loader.systemd-boot.consoleMode = "0";
-
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "senjougahara"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -45,17 +35,6 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  # services.xserver.videoDrivers = [ "vmware" ];
-
-  virtualisation.vmware.guest.enable = true;
-
-  fonts = {
-    fontDir.enable = true;
-
-    packages = [
-      pkgs.fira-code
-    ];
-  };
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -63,6 +42,7 @@
 
   # Configure keymap in X11
   services.xserver.xkb = {
+    layout = "us";
     variant = "";
   };
 
@@ -92,12 +72,9 @@
   users.users.shahruz = {
     isNormalUser = true;
     description = "shahruz";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
+    extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      #  thunderbird
+    #  thunderbird
     ];
   };
 
@@ -107,15 +84,11 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Lots of stuff that uses aarch64 that claims doesn't work, but actually works.
-  nixpkgs.config.allowUnsupportedSystem = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
-    helix
+  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -135,7 +108,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = lib.mkDefault false;
+  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

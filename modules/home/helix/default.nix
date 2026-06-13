@@ -4,8 +4,10 @@
   programs.helix = {
     enable = true;
 
+    package = pkgs.evil-helix;
+
     settings = {
-      theme = "autumn_night";
+      theme = "sonokai";
     };
 
     ignores = [
@@ -25,7 +27,7 @@
     };
 
     extraPackages = with pkgs; [
-      nodePackages.bash-language-server
+      bash-language-server
       clang-tools
       cmake-language-server
       vscode-langservers-extracted
@@ -35,7 +37,7 @@
       golangci-lint-langserver
       jdt-language-server
       typescript
-      nodePackages.typescript-language-server
+      typescript-language-server
       kotlin-language-server
       lua-language-server
       marksman

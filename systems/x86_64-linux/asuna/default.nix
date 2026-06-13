@@ -194,4 +194,11 @@
     ln -sf ${pkgs.neovim}/bin/nvim /usr/local/bin/vim
     ln -sf ${pkgs.neovim}/bin/nvim /usr/local/bin/vi
   '';
+
+security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (subject.isInGroup("wheel"))
+        return polkit.Result.YES;
+    });
+  '';
 }

@@ -800,6 +800,10 @@ with lib.my-namespace.hm.gvariant;
       panel-position = "right";
       position-index = 0;
       use-gradient = true;
+      show-album-art=false;
+      show-now-playing=false;
+      show-pill-background=false;
+      show-track-title=false;
     };
 
     "org/gnome/shell/extensions/blur-my-shell" = {

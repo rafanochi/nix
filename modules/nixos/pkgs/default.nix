@@ -34,7 +34,6 @@
     nixfmt-classic
     nixd
     vlc
-    neofetch
     git
     zsh
     starship
@@ -44,7 +43,7 @@
     curl
     xclip
     nixpkgs-fmt
-    libsForQt5.qtcurve
+    # libsForQt5.qtcurve
 
     cloudflare-warp
 
@@ -55,6 +54,10 @@
     android-tools
 
     webkitgtk_4_1
-    openscad
+
+    # openscad
+
+    zed-editor
+    jetbrains.idea
   ];
 }

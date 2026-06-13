@@ -17,12 +17,12 @@
       experimental-features = "nix-command flakes pipe-operators";
 
       # Extra cached servers
-      substituters = [ "https://cache.xinux.uz/" ];
+      # substituters = [ "https://cache.xinux.uz/" ];
 
       # Signing keys used in cache servers
-      trusted-public-keys = [
-        "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
-      ];
+      # trusted-public-keys = [
+        # "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
+      # ];
 
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
@@ -36,6 +36,9 @@
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
+allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+             "cmp-emoji"
+           ];
     # Lots of stuff that uses aarch64 that claims doesn't work, but actually works.
     nixpkgs.config.allowUnsupportedSystem = true;
     packageOverrides = pkgs: {

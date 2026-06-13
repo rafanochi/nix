@@ -13,7 +13,7 @@
   ];
 
   programs.nixvim = {
-    enable = true;
+    enable = false;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
@@ -74,7 +74,7 @@
     # };
 
     plugins = {
-      lsp.servers.dockerls.package = pkgs.nodePackages.dockerfile-language-server-nodejs;
+      lsp.servers.dockerls.package = pkgs.dockerfile-language-server-nodejs;
     };
 
     diagnostic.settings = {

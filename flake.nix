@@ -1,24 +1,25 @@
 {
-  nixConfig = {
-    experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
-    extra-substituters = [ "https://cache.xinux.uz/" ];
-    extra-trusted-public-keys =
-      [ "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=" ];
-  };
+  # nixConfig = {
+  #   experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
+  #   extra-substituters = [ "https://cache.xinux.uz/" ];
+  #   extra-trusted-public-keys =
+  #     [ "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0=" ];
+  # };
 
   inputs = {
     # nixpkgs.url = "github:xinux-org/nixpkgs/nixos-25.11";
     # unstable.url = "github:xinux-org/nixpkgs/nixos-unstable";
     nixpkgs.url =
-      "git+https://git.oss.uzinfocom.uz/xinux/nixpkgs?ref=nixos-25.11&shallow=1";
+      # "git+https://git.oss.uzinfocom.uz/xinux/nixpkgs?ref=nixos-25.11&shallow=1";
+      "git+https://git.oss.uzinfocom.uz/xinux/nixpkgs?ref=nixos-unstable&shallow=1";
     unstable.url =
       "git+https://git.oss.uzinfocom.uz/xinux/nixpkgs?ref=nixos-unstable&shallow=1";
 
     # Nix-darwin for macOS systems management
-    darwin = {
-      url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # darwin = {
+    #   url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # The name "snowfall-lib" is required due to how Snowfall Lib processes your
     # flake's inputs.
@@ -39,12 +40,14 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      # url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.11";
+      # url = "github:nix-community/nixvim/nixos-25.11";
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
