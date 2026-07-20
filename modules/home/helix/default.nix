@@ -7,7 +7,7 @@
     package = pkgs.evil-helix;
 
     settings = {
-      theme = "sonokai";
+      theme = "base16_transparent";
     };
 
     ignores = [

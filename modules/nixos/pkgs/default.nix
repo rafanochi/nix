@@ -24,7 +24,6 @@
     pciutils
 
     # was in home-manager
-    element-web
     fractal
     github-desktop
     # zoom-us
@@ -47,17 +46,8 @@
 
     cloudflare-warp
 
-    emacs
-
-    droidcam
-    obs-studio-plugins.droidcam-obs
-    android-tools
-
-    webkitgtk_4_1
-
-    # openscad
-
     zed-editor
-    jetbrains.idea
+    google-chrome
+    sbctl
   ];
 }

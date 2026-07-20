@@ -443,7 +443,7 @@ with lib.my-namespace.hm.gvariant;
       action-double-click-titlebar = "toggle-maximize";
       auto-raise = true;
       button-layout = "appmenu:minimize,close";
-      focus-mode = "mouse";
+      # focus-mode = "mouse";
       num-workspaces = 9;
       resize-with-right-button = true;
       workspace-names = [
@@ -761,8 +761,7 @@ with lib.my-namespace.hm.gvariant;
       favorite-apps = [
         "org.gnome.Nautilus.desktop"
         "org.wezfurlong.wezterm.desktop"
-        "org.telegram.desktop.desktop"
-        "zen-beta.desktop"
+        "firefox.desktop"
         "org.gnome.SystemMonitor.desktop"
       ];
       last-selected-power-profile = "performance";

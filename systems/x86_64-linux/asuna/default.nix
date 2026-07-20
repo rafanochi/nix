@@ -58,13 +58,18 @@
     kernelPackages = pkgs.linuxPackages_6_18;
     kernelParams = [ "usbcore.autosuspend=-1" ];
 
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
+    };
+
     loader = {
       # After going back to bootloader, run this:
       # nixos-rebuild switch --install-bootloader
       systemd-boot.enable = false;
       efi.canTouchEfiVariables = true;
       grub = {
-        enable = true;
+        enable = false;
         efiSupport = true;
         useOSProber = true;
         devices = [ "nodev" ];
@@ -80,6 +85,7 @@
           })
         }/xinux";
       };
+      
     };
     # consoleLogLevel = 3;
     # initrd.systemd.enable = true;

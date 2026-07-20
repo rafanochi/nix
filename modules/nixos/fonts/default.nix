@@ -11,6 +11,8 @@
 
     # Coding fonts
     nerd-fonts.fira-code
+    nerd-fonts.sauce-code-pro 
     fira-code-symbols
+    hasklig
   ];
 }

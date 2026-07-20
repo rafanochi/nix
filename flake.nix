@@ -74,6 +74,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.1.0";
+
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   # We will handle this in the next section.
@@ -96,6 +102,7 @@
       };
 
       systems.modules.nixos = with inputs; [
+        lanzaboote.nixosModules.lanzaboote
         nix-data.nixosModules.nix-data
         nixvim.nixosModules.nixvim
         home-manager.nixosModules.home-manager
