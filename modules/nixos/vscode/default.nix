@@ -19,7 +19,7 @@ let
     jnoortheen.nix-ide
     jeff-hykin.better-nix-syntax
   ];
-  allExtensions = cfg.extraPackages ++ defaultExtensions;
+  allPackages = cfg.extraPackages ++ defaultExtensions;
 in
 with lib;
 {
@@ -51,7 +51,7 @@ with lib;
       package = cfg.package;
       defaultEditor = cfg.defaultEditor;
 
-      extensions = lists.subtractLists cfg.excludedPackages allExtensions;
+      extensions = lists.subtractLists cfg.excludedPackages allPackages;
     };
   };
 }
